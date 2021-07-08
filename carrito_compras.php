@@ -91,8 +91,8 @@
 									$mensaje.="oops... error en el nombre"."</br>"; break; 
 								}
 						
-								if(is_numeric(openssl_decrypt($_POST['cantidad'],$COD,$KEY))){
-									$cantidad=openssl_decrypt($_POST['cantidad'],$COD,$KEY);
+								if(is_numeric($_POST['cantidad'])){
+									$cantidad=$_POST['cantidad'];
 									$mensaje.="OK CANTIDAD".$cantidad."</br>";
 								}
 								else{	

@@ -166,7 +166,7 @@ li {
 .slider {
     display: flex;
     width: 300%;
-    height: 579px;
+    height: 400px;
     margin-left: -100%;
 }
 .slider-section{
@@ -360,14 +360,16 @@ main{
 
 .product-header{
     position: relative;
-    background-color: #f6f2f1;
-    height: 25rem;
+    background-color: #fffdfd;
+    height: 19rem;
     transition: all 300ms ease-in-out;
     z-index: 0;
 }
 
-.product-img{
+.product-header img{
+    border-radius: 6px;
     height: 100%;
+    width: 100%;
 }
 
 .product-footer{
@@ -380,18 +382,18 @@ main{
 }
 
 .product-footer .price{
-    color: #f60000;
+    color: #15b300;
     font-size: 2rem;
 }
 .button-product{
     margin-top: 5px;
     color: white;
-    background-color: rgb(14, 163, 1);
+    background-color: rgb(209, 154, 1);
     border-radius: 5px;
     height: 30px;
     width: 80px;
-    border-color: white;
-    box-shadow: white;
+   border: none;
+    
 }
 .product:hover .product-header::after{
     content: "";
@@ -417,7 +419,7 @@ main{
 }
 
 .product-header .icons span {
-    background-color: #fff;
+    background-color: rgb(0, 0, 0);
     font-size: 2.5rem;
     display: block;
     border-radius: 50%;
@@ -435,7 +437,7 @@ main{
 }
 .product-header .icons span:hover {
     background: #ffb77c;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .product:hover .icons {
@@ -444,7 +446,7 @@ main{
 }
 
 .product-header .icons span{
-    background-color: #fff;
+    background-color: rgba(33, 255, 4, 0.678);
     font-size: 2.5rem;
     display: block;
     border-radius: 50%;
@@ -476,7 +478,8 @@ main{
     color: rgb(70, 70, 70);
 }
 .container-body{
-    height: 13em;
+    padding-top: 5px;
+    height: 8em;
     width: 100%;
     background-color: rgb(243, 243, 243);
     
@@ -489,9 +492,42 @@ main{
 .precioOne{
     text-align: center;
     background: rgb(243, 243, 243);
-    color: rgb(253, 4, 4);
+    color: rgb(55, 207, 55);
     font-weight: 700;
 }
+.form-value{
+    padding-left: 150px;
+    padding-top: 10px;
+
+}
+.form-value i{
+    border-radius: 5px;
+    background: rgb(255, 233, 108);
+    padding-left: 8px;
+    font-size: 30px;
+    color: rgb(60, 255, 0);
+}
+.buttonQuanty{
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    width: 50px;
+    height: 30px;
+    background: rgb(209, 209, 209);
+    color: rgb(0, 0, 0);
+}
+.buttonConfirm{
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    height: 30px;
+    width: 200px;
+    background: rgb(255, 153, 0);
+    color: white;
+}
+
+
 .container-footer{
     height: 30%;
     width: 100%;
@@ -594,8 +630,8 @@ table{
     margin-right: auto;
 }
 .table-top{
-    background-color: rgb(10, 1, 46);
-    color: rgb(1, 23, 56);
+    background-color: rgb(136, 136, 136);
+   
 }   
 .top{
     color: rgb(255, 255, 255);

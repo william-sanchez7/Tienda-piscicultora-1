@@ -39,18 +39,19 @@
         <?php foreach($listaProductos as $producto){ ?>
             <div class="product">
                 <div class="product-header">
-                    <div class="product-img">
+                    
                         <img title="<?php echo $producto['nombre_producto']; ?>"
                         src="<?php echo $producto['imagen_producto']; ?>"
                         alt="<?php echo $producto['nombre_producto']; ?>">
-                    </div>
+                    
                     <!-- ICONO DE AGREGAR AL CARRITO -->
                     <ul class="icons">
                         <a href="mostrar_carrito.php"><span><i class="bx bx-shopping-bag"></i></span></a>   
                     </ul>
                     <!-- DETALLES DEL PRODUCTO -->
                     <div class="product-footer">
-                        <a href="#"><h3 class="item-title"><?php echo $producto['nombre_producto'];?></h3></a>
+                        <a href="#"><h3 class="item-title"><?php echo $producto['nombre_producto'];?> x 1000kg</h3></a>
+                        <h5>Precio Ahora </h5>
                         <h4 class="price">$<?php echo $producto['precio_producto']." Kg";?></h4>
                         <!-- FORMULARIO PARA ENVIAR LA INFORMACIÓN ENCRIPTADA AL CARRITO DE COMPRAS -->
                         <form action="products.php" method="POST">
@@ -60,11 +61,11 @@
                             <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($producto['precio_producto'],$COD, $KEY); ?>">
                             <input type="hidden" name="iva" id="iva" value="<?php echo openssl_encrypt($producto['iva'],$COD, $KEY); ?>">
                             <input type="hidden" name="impoconsumo" id="impoconsumo" value="<?php echo openssl_encrypt($producto['impoconsumo'],$COD, $KEY); ?>">
-                            <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt(1,$COD, $KEY); ?>">
+                            <input type="hidden" name="cantidad" id="cantidad">
                             <button class="button-product" 
                             type="submit" 
                             name="btnAccion"
-                            value="Comprar">Comprar</button>
+                            value="Agregar">Comprar</button>
                         </form>
                     </div>
                 </div>
