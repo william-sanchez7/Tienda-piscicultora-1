@@ -592,7 +592,9 @@ main{
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    width: 100%;
+    padding-right: auto;
+    padding-left: auto;
+    width: 20%;
     background-color: rgb(184, 255, 126);
 }
 .button-back{
@@ -612,6 +614,7 @@ main{
     background-color: #219105;
     padding: 1%;
     margin-top: 2px;
+    padding-right: 0px;
 }
 .alert{
     border-radius: 1rem;
@@ -661,6 +664,26 @@ td, th{
     padding: 1em;
     margin-top: 2px;
     }
+
+    .button-car{
+        width: 100%;
+        background: black;
+    }
+    .form-value{
+        width: 100%;
+        align-items: center;
+        background: white;
+    }
+    .form-value h3{
+        width: 100%;
+        text-align: left;
+    }
+    .button{
+        width: 100%;
+        background: rgb(0, 0, 0);
+       
+    }
+
     table{
         width: 100%;
         font-size: .9em;

@@ -2,7 +2,7 @@
 <?php include('carrito_compras.php');?>
 </header>
 <!-- MAIN -->
-<main>
+
 <section class="section featured">
 <?php if(isset($_POST['btnAccion'])){?>
     <div class="title">
@@ -86,11 +86,11 @@
         <?php foreach($listaProductos as $producto){ ?>
             <div class="product">
                 <div class="product-header">
-                    <div class="product-img">
+                    
                         <img title="<?php echo $producto['nombre_producto']; ?>"
                         src="<?php echo $producto['imagen_producto']; ?>"
                         alt="<?php echo $producto['nombre_producto']; ?>">
-                    </div>
+               
                     <!-- ICONO DE AGREGAR AL CARRITO -->
                     <ul class="icons">
                         <a href="mostrar_carrito.php"><span><i class="bx bx-shopping-bag"></i></span></a>   
@@ -98,6 +98,7 @@
                     <!-- DETALLES DEL PRODUCTO -->
                     <div class="product-footer">
                         <a href="#"><h3 class="item-title"><?php echo $producto['nombre_producto'];?></h3></a>
+                        <h5>Precio Ahora </h5>
                         <h4 class="price">$<?php echo $producto['precio_producto']." Kg";?></h4>
                         <!-- FORMULARIO PARA ENVIAR LA INFORMACIÓN ENCRIPTADA AL CARRITO DE COMPRAS -->
                         <form action="" method="POST">
@@ -120,5 +121,5 @@
     </div>
 </section>
 
-</main>  
+ 
 <?php include('includes/footer.php'); ?>

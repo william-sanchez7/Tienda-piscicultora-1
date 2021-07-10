@@ -38,9 +38,9 @@
                             <td data-titulo="Precio:"><?php echo $producto['PRECIO']?></td>
                             <td data-titulo="Iva:"><?php echo $producto['IVA']."%"?></td>
                             <td data-titulo="Impoconsumo:"><?php echo $producto['IMPOCONSUMO']."%"?></td>
-                            <td data-titulo="Total:"><?php $iva = ($producto['IVA']*$producto['PRECIO'])/100; 
-                            $impoconsumo= ($producto['IMPOCONSUMO']*$producto['PRECIO'])/100;
-                            echo number_format($total1=$producto['PRECIO'] * $producto['CANTIDAD']+$iva+$impoconsumo);?></td>
+                            <td data-titulo="Total:"><?php $iva = ($producto['IVA']*$producto['PRECIO'])/100* $producto['CANTIDAD']; 
+                            $impoconsumo= ($producto['IMPOCONSUMO']*$producto['PRECIO'])/100 * $producto['CANTIDAD'];
+                            echo number_format($total1=($producto['PRECIO'] * $producto['CANTIDAD'])+$iva+$impoconsumo);?></td>
                             <!-- FORMULARIO QUÉ ENVÍA INFORMACIÓN A LA VARIABLE DE SESIÓN -->
                             <td> 
                                 <form action="" method="POST">
@@ -53,7 +53,7 @@
                             </td>
                         </tr>
                         <!-- HACE LA SUMA TOTAL DE TODOS LOS PRODUCTOS -->
-                        <?php $total= $total + ($total1 * $producto['CANTIDAD']);?>        
+                        <?php $total= $total + $total1;?>        
                         <?php } ?> <!-- FIN DEL CICLO -->
                         <!-- MUESTRA EL PRECIO TOTAL -->
                         <tr>
@@ -66,13 +66,16 @@
                 </table>
                 <!-- BOTÓN PARA VALIDAR LA COMPRA -->
                 <div class="button-car">
-                    <form action="" class="form-value">
-                        <input class="button" type="submit" value=">> Confirmación de la compra <<">
-                    </form> 
+                    
+                   <a href="">
+                   <button class="button" type="submit">Comprar</button>
+                   </a>     
+                    
+                   
                 </div>
             </div>
         </div>
-            <?php } else{ ?>
+            <?php  }  else{ ?>
                 <div class="alert">
                     No hay productos en el carrito de compras
                 </div>
