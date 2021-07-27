@@ -27,6 +27,7 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <!-- Custom Script -->
+    <script src="script/popup.js"></script>
     <script src="script/tienda.js"></script>
     <script src="script/slider.js"></script>
     <script src="script/index.js"></script>

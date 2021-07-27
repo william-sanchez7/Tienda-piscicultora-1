@@ -1,5 +1,4 @@
 <?php include('includes/header.php');?>
-<?php include('carrito_compras.php');?>
 
 <!-- SLIDER SHOW OR CARROUSEL -->
 <div class="container-slider">
@@ -22,7 +21,7 @@
 </header>
 
 <!-- MAIN -->
-<section class="section featured">
+<section class="section">
     <!-- TITULO -->
     <div class="title">
         <h1>Productos</h1>
@@ -61,7 +60,7 @@
                             <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($producto['precio_producto'],$COD, $KEY); ?>">
                             <input type="hidden" name="iva" id="iva" value="<?php echo openssl_encrypt($producto['iva'],$COD, $KEY); ?>">
                             <input type="hidden" name="impoconsumo" id="impoconsumo" value="<?php echo openssl_encrypt($producto['impoconsumo'],$COD, $KEY); ?>">
-                            <input type="hidden" name="cantidad" id="cantidad">
+                            <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt(1,$COD, $KEY); ?>">
                             <button class="button-product" 
                             type="submit" 
                             name="btnAccion"

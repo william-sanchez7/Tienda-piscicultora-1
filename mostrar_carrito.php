@@ -1,5 +1,5 @@
 <?php include("includes/header.php");?> 
-<?php include("carrito_compras.php");?>
+
 </header>
 <main>
     <section class="section featured">

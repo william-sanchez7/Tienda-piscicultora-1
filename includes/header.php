@@ -1,5 +1,6 @@
 <?php include("config.php");?>  
 <?php include('conexion.php');?>
+<?php include('carrito_compras.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" href="css/styles.css">
+   
 </head>
 <body>
     <!-- HEADER -->
@@ -41,13 +43,16 @@
                         <li class="nav-item"><a href="pedidos.php" class="nav-link">Pedidos</a></li>
                         <li class="nav-item"><a href="contacto.php" class="nav-link">Contacto</a></li>
                         <li class="nav-item"><a href="acercade.php" class="nav-link">Acerca de</a></li>
-                        <li class="nav-item"><a href="mostrar_carrito.php" class="nav-link icon-one">
-                        <i class='bx bxs-shopping-bag'></i>
-                        <!-- MUESTRA EL CONTADOR DEL CARRITO DE COMPRAS -->
-                        <span class="cart-count">
-                        <b><?php echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);?></b>
-                        </span></a></li>
-                        <li class="nav-item"><a href="iniciarSesion.php" class="nav-link icon-two"><i class='bx bx-user-circle'></i></a></li>
+                        <li class="nav-item">
+                            <a href="mostrar_carrito.php" class="nav-link icon-one">
+                                <i class='bx bxs-shopping-bag'></i>
+                                <!-- MUESTRA EL CONTADOR DEL CARRITO DE COMPRAS -->
+                                <span class="cart-count">
+                               <b><?= (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);?></b>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class='bx bx-user-circle'></i></a></li>
                     </ul>
                 <!-- CARRITO DE COMPRAS -->
                 </div><a href="mostrar_carrito.php" class="cart-icon"><i class='bx bxs-shopping-bag'></i></a>
@@ -55,3 +60,24 @@
                 <div class="hamburguer"><i class='bx bx-menu'></i></div>
             </div>
         </nav>
+        
+   
+        
+
+        <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class='bx bxs-x-circle'></i></a>
+                <h3>INICIAR SESIÓN</h3>
+                
+                <form action="#">
+                    <div class="contenedor-inputs">
+                        <input type="text" placeholder="Cuenta">
+                        <input type="password" placeholder="Contraseña">
+                    </div>
+                    <input type="submit" class="btn-submit" value="INGRESAR">
+                </form>
+            </div>
+        </div>
+  
+
+   
