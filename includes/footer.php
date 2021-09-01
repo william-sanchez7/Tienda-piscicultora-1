@@ -31,5 +31,6 @@
     <script src="script/tienda.js"></script>
     <script src="script/slider.js"></script>
     <script src="script/index.js"></script>
+    <script src="script/login.js"></script>
 </body>
 </html>

@@ -12,10 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- BOX ICONS -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" href="css/styles.css">
-   
 </head>
 <body>
     <!-- HEADER -->
@@ -61,21 +61,33 @@
             </div>
         </nav>
         
-   
-        
-
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class='bx bxs-x-circle'></i></a>
-                <h3>INICIAR SESIÓN</h3>
-                
-                <form action="#">
-                    <div class="contenedor-inputs">
-                        <input type="text" placeholder="Cuenta">
-                        <input type="password" placeholder="Contraseña">
+                <div class="popup-header">
+                   <h3>Iniciar sesión</h3> 
+                </div>
+                <form action="#" class="form-login">
+                    <div class="field email">
+                        <div class="input-area">
+                            <input type="text" placeholder="Cuenta">
+                            <i class="icon fas fa-user-tie"></i>
+                            <i class="error error-icon fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="error error-text">El campo está vacío</div>
                     </div>
-                    <input type="submit" class="btn-submit" value="INGRESAR">
+                    <div class="field password">
+                        <div class="input-area">
+                            <input type="password" placeholder="Contraseña">
+                            <i class="icon fas fa-lock"></i>
+                            <i class="error error-icon fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="error error-text">El campo está vacío</div>
+                    </div>
+                    <div class="pass-link"><a href="#">Olvidaste tú contraseña?</a></div>
+                    <input type="submit" value="Entrar">
                 </form>
+                <div class="signup-link">No tienes cuenta?<a href="register.php">Regístrate ahora</a></div>
             </div>
         </div>
   

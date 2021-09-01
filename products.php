@@ -49,21 +49,21 @@
                             <input type="hidden" name="iva" id="iva" value="<?php echo openssl_encrypt($iva1,$COD, $KEY); ?>">
                             <input type="hidden" name="impoconsumo" id="impoconsumo" value="<?php echo openssl_encrypt($impoconsumo1,$COD, $KEY); ?>">
                         
-                        <input type="number" placeholder="<?php  echo $cantidad; ?>"  class="buttonQuanty" name="cantidad"
-                        id="cantidad" value="<?php echo number_format(openssl_encrypt($cantidad,$COD,$KEY)); ?>">
+                        <input type="number" placeholder="<?php  echo $cantidad; ?>" class="buttonQuanty" name="cantidad"
+                        id="cantidad" value="<?php  echo 1; ?>" min="1">
                         
 
-                        <input class="buttonConfirm" type="submit" name="btnAccion" value="Agregar">
-                        <button class="addCar" type="submit" name="btnAccion" value="Agregar"><i class='bx bxs-cart-add'></i>  </button>
+                        <button class="buttonConfirm" type="submit" name="btnAccion" value="Agregar">Comprar </button>
+                        <button class="addCar" type="submit" name="btnAccion" value="Agregar"> <i class='bx bxs-cart-add'></i></button>
                         
                     </form>
                     
                     </div>
                     <hr>
                     <div class="container-footer">
-                        <h4>Metodos de pago: Contra <br> Entrega</h4>
-                        <hr>
-                        <h4>Metodos de envío: Envío a domicilio </h4>
+                       <div class="Mtd-pago"><h4>Metodos de pago: </h4><i class='bx bxs-store'></i> <h6>Contra Entrega</h6></div> 
+                       
+                        <div class="Mtd-envio"><h4>Metodos de envío:</h4>  </h4>  <i class='bx bxs-package'></i><h6>Envío a domicilio </h6></div>
                     </div>
                         
                 </div>
@@ -73,7 +73,8 @@
         <?php } ?>   
 </section>
 <section class="section featured">
-    <center><h1>También te podría interesar</h1></center>
+    <div class="title"><h1>Te podría interesar</h1> </div>
+    
     <div class="product-center container">
         
         <!-- PREPARA Y ALMACENA LOS DATOS EN UNA VARIABLE -->
