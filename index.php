@@ -32,7 +32,7 @@
         <?php
             $sentencia=$pdo->prepare("SELECT * FROM `productos`");//VARIABLE PDO IN THE ARCHIVE OF CONEXION
             $sentencia->execute();
-            $listaProductos=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $listaProductos=$sentencia->fetchAll(PDO::FETCH_ASSOC);//devuelve un array que contiene todo las filas de resultado
         ?>
         <!-- CICLO PARA MOSTRAR LOS PRODUCTOS  -->
         <?php foreach($listaProductos as $producto){ ?>

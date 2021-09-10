@@ -1,4 +1,5 @@
 <?php include('includes/header.php'); ?>
+</header>
 <main>
     <section class="section featured">
         <!-- TITULO -->
