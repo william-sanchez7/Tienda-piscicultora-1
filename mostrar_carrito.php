@@ -47,7 +47,7 @@
                                     <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['ID'],$COD,$KEY);?>">
                                     <!-- BOTÓN QUÉ VALIDA LA ELIMINACIÓN DE PRODUCTOS -->
                                     <button class="btn btn-danger" type="submit" name="btnAccion" 
-                                    value="Eliminar"><i class='bx bxs-trash'></i>
+                                    value="Eliminar"><i class="fas fa-times-circle"></i>
                                     </button>
                                 </form>
                             </td>

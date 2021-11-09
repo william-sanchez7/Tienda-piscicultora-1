@@ -4,7 +4,7 @@ const entradas = document.querySelectorAll("#formulario input");//obtiene todos 
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
+	password: /^.{8,50}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
@@ -58,7 +58,7 @@ const validarCampo = (expresion, input, campo) => { //parametros recibidos de la
 		document.querySelector(`#group-${campo} i`).classList.remove('fa-check-circle');
 		document.querySelector(`#group-${campo} .form-input-error`).classList.add('form-input-error-active');
 		campos[campo] = false;
-	}
+	}//note: la clase de la caja del input se llama input-r y el nombre del parrafo form-input-error
 }
 //Valida si las contraseñas están correctas, sincroniza iconos u colores
 const validarPassword2 = () => {
@@ -88,22 +88,26 @@ entradas.forEach((input) =>{
 });
 
 formulario.addEventListener('submit', (e) =>{
-	const terminos = document.getElementById('terminos');
-	//condición para verificar si los datos del objeto son verdaderos o falsos
-	if(campos.user && campos.name && campos.email && campos.password && campos.tellphone && terminos.checked){
-		
-		// formulario.reset();//restablece los valores ingresados de los inputs -no activar
-		document.getElementById('form-msj-exito').classList.add('form-msj-exito-active');
-			//Función con tiempo limite del mensaje de exito
-			setTimeout(() =>{
-				document.getElementById('form-msj-exito').classList.remove('form-msj-exito-active');
-			}, 5000);
-		
-		document.querySelectorAll('.form-group-correct').forEach((icono) => {
-			icono.classList.remove('form-group-correct');
-		});
-	
-	}else{
+	const TyC = document.getElementById('terminos');//terminos y condiciones
+	//condición para verificar si los datos del objeto 'Campos' son verdaderos o falsos
+	if(campos.user && campos.name && campos.email && campos.password && campos.tellphone && TyC.checked){
+		// document.getElementById('form-msj-exito').classList.add('form-msj-exito-active');
+		//Función con tiempo limite del mensaje de exito
+		setTimeout(() =>{
+			alert('Registrado');
+			// swal.fire({
+			// 	title: "Registrado!",
+			// 	text: "Ya puedes iniciar sesión",
+			// 	icon: 'success',
+			// 	confirmButtonText: 'Continuar'
+			// });
+		}, 5000);	
+		// document.querySelectorAll('.form-group-correct').forEach((icono) => {
+		// 	icono.classList.remove('form-group-correct');
+		// });
+	}
+	else{
+		alert('Como dijo mi papá, fuiste un Error');
 		document.getElementById('msj-error').classList.add('msj-error-active');
 	}
 });

@@ -1,17 +1,10 @@
 <?php include('includes/header.php');?>
-
 </header>
 <!-- MAIN -->
-
 <section class="section">
-<?php if(isset($_POST['btnAccion'])){?>
-    
-    
-        
-        <!-- MUESTRA LOS PRODUCTOS GUARDADOS EN LA VARIABLE DE SESION -->
-        
-           
-       <div class="container-all">
+    <?php if(isset($_POST['btnAccion'])){?>
+    <!-- MUESTRA LOS PRODUCTOS GUARDADOS EN LA VARIABLE DE SESION -->
+        <div class="container-all">
             <div class="container-main">
                 <div class="container-img">
                     <?php $imagen=openssl_decrypt($_POST['imagen'],$COD,$KEY);?>
@@ -41,7 +34,7 @@
                     $total= $total + ($total1 * $cantidad); 
                     //me está haciendo la suma del total, sin embargo no me está enviando nada al carrito de compras
                     ?></h3>
-                    
+                
                     <form action="mostrar_carrito.php" method="POST" class="form-value">
                             <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($id,$COD, $KEY); ?>">
                             <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($nombre,$COD, $KEY); ?>">
@@ -72,6 +65,8 @@
          
         <?php } ?>   
 </section>
+
+
 <section class="section featured">
     <div class="title"><h1>Te podría interesar</h1> </div>
     

@@ -5,7 +5,7 @@ pField = form.querySelector(".password"),//guarda en una const la clase field + 
 pInput = pField.querySelector("input");//guarda en una const la clase input-area+ input
 
 form.onsubmit = (e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     if(eInput.value == ""){
         eField.classList.add("shake", "error");
     }

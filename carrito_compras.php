@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+ 	session_start(); 
 	//VARIABLE GLOBAL PARA MOSTRAR EL VALOR RECIBIDO
 	$mensaje="";
 		
