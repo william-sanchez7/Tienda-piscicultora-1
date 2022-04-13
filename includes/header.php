@@ -8,6 +8,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="William sanchez">
+    <meta name="description" content="Tienda virtual piscicultora">
+    <meta name="aplication-name" content="System fish">
+    <meta name="keywords" content="tolifish, mojarra ibagué, comprar mojarra, mojarra roja">
     <title>Toli Fish</title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,11 +22,11 @@
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="css/styles.css">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -31,13 +35,13 @@
         <nav class="nav">
             <div class="navigation container">
                 <div class="logo">
-                    <a href="index.php"><h1>Tolifish</h1></a> 
+                    <a href="index.php"><img src="img/icon_tolifish.png" alt="tolifish logo"></a> 
                 </div>
                 <!-- LOGO -->
                 <div class="menu">
                     <div class="top-nav">
                         <div class="logo">
-                            <h1>Tolifish</h1>
+                            <h1>fish</h1>
                         </div>
                         <div class="close">
                             <i class='bx bx-x'></i>
@@ -61,7 +65,9 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item"><a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class="fas fa-user-circle"></i></a></li>
+                        <li class="nav-item"><?php if(isset($_SESSION)){?>
+                            <a href="#" class="btn-user"><i class="fas fa-house-user"></i></a><?php 
+                        }else{ ?><a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class="fas fa-user-circle"></i></a><?php }?></li>
                     </ul>
                 <!-- CARRITO DE COMPRAS -->
                 </div><a href="mostrar_carrito.php" class="cart-icon"><i class='bx bxs-shopping-bag'></i></a>
@@ -69,11 +75,13 @@
                 <div class="hamburguer"><i class='bx bx-menu'></i></div>
             </div>
         </nav>
-        
+
+
+        <!-- Login -->
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <div class="btn-cerrar">
-                   <span id="btn-cerrar-popup" class="btn-cerrar-popup"> <i class='bx bxs-x-circle'></i></span>
+                   <span id="btn-cerrar-popup" class="btn-cerrar-popup"><i class='bx bxs-x-circle'></i></span>
                 </div>
                 
                 <div class="popup-header">

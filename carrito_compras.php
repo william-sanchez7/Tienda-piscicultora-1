@@ -28,61 +28,45 @@
 									$precio=openssl_decrypt($_POST['precio'],$COD,$KEY);
 									$mensaje.="OK PRECIO".$precio."</br>";
 								}else{$mensaje.="oops... error en el precio"."</br>"; break;}
-
-								if(is_numeric(openssl_decrypt($_POST['iva'],$COD,$KEY))){
-									$iva=openssl_decrypt($_POST['iva'],$COD,$KEY);
-									$mensaje.="OK PRECIO".$iva."</br>";
-								}else{$mensaje.="oops... error en el iva"."</br>"; break;}
-			
-								if(is_numeric(openssl_decrypt($_POST['impoconsumo'],$COD,$KEY))){
-								$impoconsumo=openssl_decrypt($_POST['impoconsumo'],$COD,$KEY);
-								$mensaje.="OK PRECIO".$impoconsumo."</br>";
-								}else{$mensaje.="oops... error en el impoconusmo"."</br>"; break;}
 			
 					// ALMACENA EN LA VARIABLE DE SESIÓN LOS VALORES RECIBIDOS POR LAS VARIABLES DEL FORMULARIO 
 					if(!isset($_SESSION['CARRITO'])){
-						$producto = array(
+						$productos = array(
 						'ID'=>$id,
 						'NOMBRE'=>$nombre,
 						'CANTIDAD'=>$cantidad,
 						'PRECIO'=>$precio,
-						'IVA'=>$iva,
-						'IMPOCONSUMO'=>$impoconsumo
-					);
-				
-					$_SESSION['CARRITO'][0]=$producto;
-					}else{
-						$idProductos=array_column($_SESSION['CARRITO'],"ID");
-
-						if(in_array($id,$idProductos)){
-							echo "<script> alert('El producto ya fué seleccionado'); </script>";
-						}
-						else{
-						$numeroProductos=count($_SESSION['CARRITO']);
-						$producto = array(
-						'ID'=>$id,
-						'NOMBRE'=>$nombre,
-						'CANTIDAD'=>$cantidad,
-						'PRECIO'=>$precio,
-						'IVA'=>$iva,
-						'IMPOCONSUMO'=>$impoconsumo
 						);
-					
-					$_SESSION['CARRITO'][$numeroProductos]=$producto;
+						$_SESSION['CARRITO'][0]=$productos;
 					}
-					//IMPRIME LO QUÉ HAY EN LA VARIALE DE SESIÓN	
-					// $mensaje=print_r($_SESSION,true);
-				break;
-				}
-						
-			
+					
+					else{
+							$idProductos=array_column($_SESSION['CARRITO'],"ID");
+							if(in_array($id,$idProductos)){
+								echo "<script> alert('El producto ya fué seleccionado'); </script>";
+							}
+							else{
+								$numeroProductos=count($_SESSION['CARRITO']);
+								$productos = array(
+								'ID'=>$id,
+								'NOMBRE'=>$nombre,
+								'CANTIDAD'=>$cantidad,
+								'PRECIO'=>$precio,
+								);
+								$_SESSION['CARRITO'][$numeroProductos]=$productos;
+							}
+							//IMPRIME LO QUÉ HAY EN LA VARIALE DE SESIÓN	
+							$mensaje="producto agregado al carrito...";
+							break;
+						}
+					break;
 				case "Eliminar":
 
 					if(is_numeric(openssl_decrypt($_POST['id'],$COD,$KEY))){
 						$id=openssl_decrypt($_POST['id'],$COD,$KEY);
 						//RECORRE LA VARIABLE DE SESIÓN Y LA ASIGNA A LA VARIABLE DE PRODUCTO
-						foreach($_SESSION['CARRITO'] as $indice=>$producto){
-							if($producto['ID']==$id){
+						foreach($_SESSION['CARRITO'] as $indice=>$productos){
+							if($productos['ID']==$id){
 							unset($_SESSION['CARRITO'][$indice]);
 	 						}
 						}

@@ -51,22 +51,29 @@
                     <div class="product-footer">
                         <a href="#"><h3 class="item-title"><?php echo $producto['nombre_producto'];?> x 1000kg</h3></a>
                         <h5>Precio Ahora </h5>
-                        <h4 class="price">$<?php echo $producto['precio_producto']." Kg";?></h4>
+                        <h4 class="price">$
+                            <?php 
+                            $precio= $producto['precio_producto'];
+                            $subIva=$producto['iva']; 
+                            $iva = ($subIva*$precio)/100; 
+                            $subImpoconsumo=$producto['impoconsumo'];
+                            $impoconsumo= ($subImpoconsumo*$precio)/100; 
+                            $subTotal=$precio+$iva+$impoconsumo;
+                            echo number_format($subTotal)." Kg";?></h4>
                         <!-- FORMULARIO PARA ENVIAR LA INFORMACIÓN ENCRIPTADA AL CARRITO DE COMPRAS -->
-                        <form action="products.php" method="POST">
-                            <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['id_productos'],$COD, $KEY); ?>">
-                            <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($producto['nombre_producto'],$COD, $KEY); ?>">
-                            <input type="hidden" name="imagen" id="imagen" value="<?php echo openssl_encrypt($producto['imagen_producto'],$COD, $KEY); ?>">
-                            <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($producto['precio_producto'],$COD, $KEY); ?>">
-                            <input type="hidden" name="iva" id="iva" value="<?php echo openssl_encrypt($producto['iva'],$COD, $KEY); ?>">
-                            <input type="hidden" name="impoconsumo" id="impoconsumo" value="<?php echo openssl_encrypt($producto['impoconsumo'],$COD, $KEY); ?>">
-                            <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt(1,$COD, $KEY); ?>">
+                        
+                    </div>
+                    <form action="products.php" method="POST">
+                            <input type="hidden" name="id" id="id" value="<?php echo $producto['id_productos']; ?>">
+                            <input type="hidden" name="nombre" id="nombre" value="<?php echo $producto['nombre_producto']; ?>">
+                            <input type="hidden" name="imagen" id="imagen" value="<?php echo $producto['imagen_producto']; ?>">
+                            <input type="hidden" name="precio" id="precio" value="<?php echo $subTotal; ?>">
+                            <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1; ?>">
                             <button class="button-product" 
                             type="submit" 
                             name="btnAccion"
-                            value="Agregar">Comprar</button>
-                        </form>
-                    </div>
+                            >Comprar</button>
+                    </form>
                 </div>
             </div>
         <?php } ?>
@@ -129,18 +136,18 @@
                     </div>
                     <div>
                         <span><i class="fas fa-envelope"></i></span>
-                        <a href="illiantes21@gmail.com">lorem@gmail.com</a>
+                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">lorem@gmail.com</a>
                     </div>
                     <div>
                         <span><i class="fas fa-phone-alt"></i></span>
-                        <a href="tel:+57 3123232424">+57 31223232424</a>
+                        <a href="tel:+57 3123232424">+57 3122323242</a>
                     </div>
                     <!-- Redes sociales -->
                     <ul class="sci">
-                        <li><a href="#"><i class="fab fa-facebook-square"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                        <li><a href="https://es-la.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i> </a></li>
+                        <li><a href="https://www.instagram.com/?hl=es" target="_blank"><i class="fab fa-instagram"></i> </a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> </a></li>
+                        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> </a></li>
                     </ul>
                 </div>
             </div>
@@ -178,7 +185,7 @@
             
         </div>
         <div class="container-comments">
-            <h1 class="heading"> <span>Cónoce</span> Nuestros aliados</h1>
+            <h1 class="heading"> <span>Cónoce</span> Nuestros clientes</h1>
             <div class="profiles">
                 <div class="profile">
                     <img src="img/perf1.jpg" alt="" class="profile-img">
@@ -190,7 +197,7 @@
                     <img src="img/perfil2.jpg" alt="" class="profile-img">
                     <h3 class="user-name">William</h3>
                     <h5>Comprador comercial</h5>
-                    <p>Lo qué mas me gusta de Tolifish es su gestión de entregas de sus productos, siempre rápido y correctamente las entregas</p>
+                    <p>Lo qué mas me gusta de Tolifish es su gestión de entregas de sus productos, siempre rápido y correctas las entregas</p>
                 </div>
                 <div class="profile">
                     <img src="img/perfil3.jpg" alt="" class="profile-img">
