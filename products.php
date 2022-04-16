@@ -20,7 +20,7 @@
                         han sido seleccionados y clasificados con los estándares de calidad que te mereces.";?>
                         </h3>
                     </div> 
-                    
+                    <hr>
                     <!-- Note: el iva y el impoconsumo ya debería venir incluido con el precio -->
                     <div class="container-body">
                         <h3 class="precioOne">Precio Ahora: $ <?php 
@@ -52,7 +52,7 @@
                         </form>
                     
                     </div>
-                    
+                    <hr>
                     <div class="container-footer">
                        <div class="Mtd-pago"><h4>Metodos de pago: </h4><i class='bx bxs-store'></i> <h6>Contra Entrega</h6></div> 
                        
@@ -85,11 +85,12 @@
                         <img title="<?php echo $producto['nombre_producto']; ?>"
                         src="<?php echo $producto['imagen_producto']; ?>"
                         alt="<?php echo $producto['nombre_producto']; ?>">
-                    
+                       
                     <!-- ICONO DE AGREGAR AL CARRITO -->
                     <ul class="icons">
                         <a href="mostrar_carrito.php"><span><i class="bx bx-shopping-bag"></i></span></a>   
                     </ul>
+                   
                     <!-- DETALLES DEL PRODUCTO -->
                     <div class="product-footer">
                         <a href="#"><h3 class="item-title"><?php echo $producto['nombre_producto'];?> x 1000kg</h3></a>

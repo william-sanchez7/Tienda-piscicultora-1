@@ -36,5 +36,6 @@
     <script src="script/index.js"></script>
     <script src="script/login.js"></script>
     <script src="script/register.js"></script>
+    <script src=script/popupuser.js> </script>
 </body>
 </html>

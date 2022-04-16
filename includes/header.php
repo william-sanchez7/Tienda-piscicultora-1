@@ -1,6 +1,8 @@
 <?php include("config.php");?>  
 <?php include('conexion.php');?>
+<?php include('includes/loginValidate.php'); ?>
 <?php include('carrito_compras.php'); ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -18,6 +20,7 @@
     <link rel="icon" type="image/png" href="img/icon_tolifish.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- BOX ICONS -->
+    
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -58,16 +61,16 @@
                         
                         <li class="nav-item">
                             <a href="mostrar_carrito.php" class="nav-link icon-one">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class='bx bxl-shopify'></i>
                                 <!-- MUESTRA EL CONTADOR DEL CARRITO DE COMPRAS -->
                                 <span class="car-count">
                                 <p><?= (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);?></p>
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item"><?php if(isset($_SESSION)){?>
-                            <a href="#" class="btn-user"><i class="fas fa-house-user"></i></a><?php 
-                        }else{ ?><a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class="fas fa-user-circle"></i></a><?php }?></li>
+                        <li class="nav-item"><?php if(isset($_SESSION['user'])){?>
+                            <a href="#" class="btn-abrir-popup" id="popupuser"><i class='bx bxs-user-rectangle'></i></a>
+                        <?php } else{ ?><a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class='bx bxs-user-circle bx-tada'></i></a><?php } ?></li>
                     </ul>
                 <!-- CARRITO DE COMPRAS -->
                 </div><a href="mostrar_carrito.php" class="cart-icon"><i class='bx bxs-shopping-bag'></i></a>
@@ -75,7 +78,33 @@
                 <div class="hamburguer"><i class='bx bx-menu'></i></div>
             </div>
         </nav>
-
+        
+        <!-- Perfil de usuario -->
+        <div class="overlay-user" id="overlay-user">
+            <div class="popup-user" id="popup-user">
+                <div class="container-btn-close">
+                     <span class="btn-close-popup" id="close-popup-user"><i class='bx bxs-x-circle'></i></span>       
+                </div>
+                <div class="header-profile-user">
+                    <div class="user-image"><a href=""><i class='bx bxs-image-add'></i></a></div> 
+                    <div class="user-name"><h3>Jhon Doe</h3></div>
+                </div>
+                <div class="content-profile-user">
+                    <div class="access-profile">
+                        <a href=""><i class='bx bx-edit'></i><h4> Editar usuario</h4></a>
+                    </div>
+                    <div class="access-profile">
+                        <a href=""><i class='bx bx-history' ></i><h4> Historial</h4></a>
+                    </div>
+                    <div class="access-profile">
+                        <a href=""><i class='bx bxs-check-shield' ></i><h4> Politicas y privacidad</h4></a>
+                    </div>
+                    <div class="access-profile">
+                        <a href="includes/signout.php"><i class='bx bx-exit' ></i><h4> Cerrar sesión</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Login -->
         <div class="overlay" id="overlay">
@@ -87,7 +116,7 @@
                 <div class="popup-header">
                    <h3>Iniciar sesión</h3> 
                 </div>
-                <form action="#" class="form-login" method="POST" id="formRegister">
+                <form action="includes/loginValidate.php" class="form-login" method="POST" id="formRegister">
                     <div class="field email">
                         <div class="input-area">
                             <input type="text" placeholder="Cuenta" name="user">

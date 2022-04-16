@@ -143,6 +143,7 @@ li {
     font-size: 2rem;
     color: rgb(255, 255, 255);
 }
+
 .btn-user{
     font-size: 2.5rem;
     color: rgb(236, 236, 236);
@@ -411,8 +412,9 @@ main{
 }
 
 .product-footer h3{
-    color: rgb(10, 10, 10);
+    color: #fc6006;
     font-size: 2.2rem;
+    font-weight: 560;
 }
 
 .product-footer .price{
@@ -882,7 +884,7 @@ main{
 .profile:hover .profile-img{
     filter: grayscale(0);
 }
-.user-name{
+.comment-user-name{
     color: rgb(15, 15, 15);
     margin-top: 20px;
     font-size: 35px;
@@ -938,6 +940,37 @@ main{
 }
 
 /* Carshop */
+.bxl-shopify{
+    font-size: 3rem;
+}
+.btn-delete{
+    float: right;
+    width: 4rem;
+    height: 3rem;
+    padding-right: 3px;
+    color: rgb(255, 255, 255);
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+}
+.bxs-tag-x{
+    font-size: 2.5rem;
+}
+.back-shop{
+    width: 5rem;
+    height: 3.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: yellowgreen;
+    border-radius: 4px;
+}
+.back-shop:hover{
+    background-color: green;
+}
+.bx-arrow-back{
+    font-size: 2rem;
+}
 .cart-count b{
     position: relative;
     bottom: 3px;
@@ -1158,58 +1191,6 @@ tr:hover{
 	visibility: hidden;
     z-index: 999;
 }
-.overlayS {
-	background: #d9fbaffe;
-	position: fixed;
-    width: 30%;
-	top: 0;
-	bottom: 0;
-	left: 100;
-	right: 0;
-	visibility: hidden;
-    z-index: 999;
-}
-.popupS{
-    background: #fc6006;
-    text-align: center;
-    width: 100%;
-    height: 72px;
-    position: relative;
-    opacity: 1;
-}
-.popupS-header h3{
-    color: rgb(255, 255, 255);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2.2rem;
-    font-weight: 700px;
-    opacity: 1;
-}
-
-.popupS .btn-cerrar{
-    color: #fff;
-    padding-top: 10px;
-    padding-left: 370px;
-    width: 20px;
-    cursor: pointer;
-}
-.container-mainS{
-    height: 20%;
-}
-.buttonConfirmS{
-    width: 5em;
-    cursor: pointer;
-}
-.container-headerS h1{
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-.container-imgS{
-    background: white;
-    width: 13rem;
-}
-.container-imgS img{
-    border-radius: 10%;
-}
 .popup{
     background: #fff;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
@@ -1227,9 +1208,6 @@ tr:hover{
     font-size: 35px;
     font-weight: 600px;
     opacity: 0;
-}
-.overlayS.active {
-	visibility: visible;
 }
 .overlay.active {
 	visibility: visible;
@@ -1396,6 +1374,121 @@ tr:hover{
 	to { opacity: 1; }
 }
 
+/* profile-user */
+.header .overlay-user{
+    padding-top: 73px;
+    padding-left: 80%;
+    padding-right: 0px;
+}
+.overlay-user{
+    background: rgba(0, 0, 0, 0);
+    position: fixed;
+    padding: 20px 25px 20px 25px;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+	visibility: hidden;
+    z-index: 999;  
+}
+.overlay-user.active{
+    visibility: visible;
+}
+.popup-user{
+    width: 100%;
+    height: 50%;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+.container-btn-close{
+    float: right;
+    width: 10px;
+    background: rgb(255, 255, 255);
+    color: rgb(214, 214, 214);
+
+}
+.btn-close-popup{
+    width: 10px;
+}
+.container-btn-close:hover{
+    cursor: pointer;
+    color: rgb(252, 0, 0);
+}
+.bxs-image-add{
+    border-radius: 3px;
+    color: rgb(240, 176, 0);
+    font-size: 7rem;
+}
+.header-profile-user{
+    height: 30%;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+}
+.user-image{
+    float: left;
+    width: 50%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+}
+.user-image a{
+    background-color: rgb(255, 255, 255);
+}
+.user-name{
+    padding-top: 0px;
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.user-name h3{
+    padding-top: 18px;
+    padding-right: 13px;
+    color: rgb(17, 17, 17);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.content-profile-user{
+    padding-top: 10px;
+    background: rgb(255, 255, 255);
+}
+.access-profile{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    padding-left: 5px;
+}
+.access-profile h4{
+    padding-left: 30px;
+    text-align: left;
+    color: rgb(59, 59, 59);  
+}
+.bx-edit{
+    float: left;
+    border-radius: 3px;
+    font-size: 2rem;
+    background: #00a3a3;
+}
+.bx-history{
+    float: left;
+    border-radius: 3px;
+    font-size: 2rem;
+    background: #dfa300;
+}
+.bxs-check-shield{
+    float: left;
+    border-radius: 3px;
+    font-size: 2rem;
+    background: #36bb01;
+}
+.bx-exit{
+    float: left;
+    border-radius: 3px;
+    font-size: 2rem;
+    background: #e20000;
+}
 /* Register */
 .body-s{
     display: flex;

@@ -1,19 +1,27 @@
 <?php
 include('conexion.php');
-$user = $_POST['user'];
-$password = $_POST['password'];
+if(isset($_POST['register'])){
+    $user = $_POST['user'];
+    $password = $_POST['password'];
+}
+
 $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $sentencia = $pdo -> prepare("SELECT * FROM `usuarios` WHERE usuario=:USER and contraseña=:CLAVE");
 $sentencia->bindParam(':USER',$user);
 $sentencia->bindParam(':CLAVE',$password);
 $sentencia->execute();
 $usuario = $sentencia -> fetch(PDO::FETCH_ASSOC);
-if($usuario){
-    $_SESSION['usuario'] = $usuario["usuario"];
+
+
+
+$numeroRegistros = $sentencia->rowCount();
+session_start();
+if($numeroRegistros>=1){
     header('location: ../index.php');
-    echo "<script> alert('Conectado perra'); </script>";
+    $_SESSION['user'] = $usuario;
 }else{
-    echo "Contraseña o usuario incorrecto!";
+    
 }
+
 
 ?>

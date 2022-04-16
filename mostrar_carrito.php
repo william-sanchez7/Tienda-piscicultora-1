@@ -8,9 +8,9 @@
             <h1>Carrito de compras</h1>
         </div>
         <!-- BOTON PARA VOLVER A LA PAGINA DE LOS PRODUCTOS -->
-        <form action="index.php#product" class="form-value">
-              <input class="button-back" type="submit" value="Volver">
-        </form>
+        <button class="back-shop">
+            <a href="index.php#product"><i class='bx bx-arrow-back' ></i></a>
+        </button>
         <!-- MUESTRA LOS PRODUCTOS GUARDADOS EN LA VARIABLE DE SESION -->
         <div>
             <?php if(!empty($_SESSION['CARRITO'])){// <- VERIFICA SI LA VARIABLE DE SESIÓN ESTÁ VACÍA?>
@@ -41,8 +41,8 @@
                                 <form action="" method="POST">
                                     <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['ID'],$COD,$KEY);?>">
                                     <!-- BOTÓN QUÉ VALIDA LA ELIMINACIÓN DE PRODUCTOS -->
-                                    <button class="btn btn-danger" type="submit" name="btnAccion" 
-                                    value="Eliminar"><i class="fas fa-times-circle"></i>
+                                    <button class="btn-delete" type="submit" name="btnAccion" 
+                                    value="Eliminar"><i class='bx bxs-tag-x' ></i>
                                     </button>
                                 </form>
                             </td>
@@ -60,8 +60,8 @@
                 <!-- BOTÓN PARA VALIDAR LA COMPRA -->
                 <div class="button-car">
                     
-                   <a href="">
-                   <button class="button" type="submit">Comprar</button>
+                   <a href="#">
+                   <button class="button" type="submit">Validar compra</button>
                    </a>     
                     
                    

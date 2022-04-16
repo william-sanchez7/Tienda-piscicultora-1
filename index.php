@@ -189,19 +189,19 @@
             <div class="profiles">
                 <div class="profile">
                     <img src="img/perf1.jpg" alt="" class="profile-img">
-                    <h3 class="user-name">Isabella</h3>
+                    <h3 class="comment-user-name">Isabella</h3>
                     <h5>Comprardora local</h5>
                     <p>Reconozco los esfuerzos de Tolifish en la calidad de sus productos, los cuales me ha permitido ofrecerles a mis clientes un pescado de calidad</p>
                 </div>
                 <div class="profile">
                     <img src="img/perfil2.jpg" alt="" class="profile-img">
-                    <h3 class="user-name">William</h3>
+                    <h3 class="comment-user-name">William</h3>
                     <h5>Comprador comercial</h5>
                     <p>Lo qué mas me gusta de Tolifish es su gestión de entregas de sus productos, siempre rápido y correctas las entregas</p>
                 </div>
                 <div class="profile">
                     <img src="img/perfil3.jpg" alt="" class="profile-img">
-                    <h3 class="user-name">Martha</h3>
+                    <h3 class="comment-user-name">Martha</h3>
                     <h5>Distribuidora regional</h5>
                     <p>Tolifish ha demostrado gran responsabilidad en la entrega de sus productos y en su garantía de éstos mismos. Mis clientes les agrada y yo estoy satisfecha.</p>    
                 </div>
