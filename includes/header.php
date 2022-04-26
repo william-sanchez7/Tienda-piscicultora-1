@@ -1,9 +1,4 @@
-<?php include("config.php");?>  
-<?php include('conexion.php');?>
-<?php include('includes/loginValidate.php'); ?>
-<?php include('carrito_compras.php'); ?>
-
-
+<?php require_once('includes/mvc.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -52,8 +47,8 @@
                     </div>
                     <!-- LISTA DE NAVEGACIÓN -->
                     <ul class="nav-list">
-                        <li class="nav-item"><a href="index.php" class="nav-link">Inicio</a></li>
-                        <li class="nav-item"><a href="index.php#product" class="nav-link">Productos</a></li>
+                        <li class="nav-item"><a href= "index.php" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href= "index.php#product" class="nav-link">Productos</a></li>
                         <li class="nav-item"><a href="pedidos.php" class="nav-link">Pedidos</a></li>
                         <li class="nav-item"><a href="index.php#contact" class="nav-link">Contacto</a></li>
                         <li class="nav-item"><a href="index.php#about" class="nav-link">Acerca de</a></li>
@@ -68,9 +63,7 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item"><?php if(isset($_SESSION['user'])){?>
-                            <a href="#" class="btn-abrir-popup" id="popupuser"><i class='bx bxs-user-rectangle'></i></a>
-                        <?php } else{ ?><a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class='bx bxs-user-circle bx-tada'></i></a><?php } ?></li>
+                        <li class="nav-item"><?php iconoDeAccesoUsuario(); ?></li>
                     </ul>
                 <!-- CARRITO DE COMPRAS -->
                 </div><a href="mostrar_carrito.php" class="cart-icon"><i class='bx bxs-shopping-bag'></i></a>
@@ -86,15 +79,16 @@
                      <span class="btn-close-popup" id="close-popup-user"><i class='bx bxs-x-circle'></i></span>       
                 </div>
                 <div class="header-profile-user">
-                    <div class="user-image"><a href=""><i class='bx bxs-image-add'></i></a></div> 
-                    <div class="user-name"><h3>Jhon Doe</h3></div>
+                    <div class="user-image"><img src="<?php echo resultadoDatosUsuario()[0]; ?>" alt="imagen usuario"></a>
+                   </div> 
+                    <div class="user-name"><h3><?php echo resultadoDatosUsuario()[1]; ?></h3></div>
                 </div>
                 <div class="content-profile-user">
                     <div class="access-profile">
-                        <a href=""><i class='bx bx-edit'></i><h4> Editar usuario</h4></a>
+                        <a href="edituser.php"><i class='bx bx-edit'></i><h4> Editar usuario</h4></a>
                     </div>
                     <div class="access-profile">
-                        <a href=""><i class='bx bx-history' ></i><h4> Historial</h4></a>
+                        <a href="pedidos.php"><i class='bx bx-history' ></i><h4> Historial</h4></a>
                     </div>
                     <div class="access-profile">
                         <a href=""><i class='bx bxs-check-shield' ></i><h4> Politicas y privacidad</h4></a>
@@ -119,7 +113,7 @@
                 <form action="includes/loginValidate.php" class="form-login" method="POST" id="formRegister">
                     <div class="field email">
                         <div class="input-area">
-                            <input type="text" placeholder="Cuenta" name="user">
+                            <input type="text" placeholder="Cuenta" name="user" required>
                             <i class="icon fas fa-user-tie"></i>
                             <i class="error error-icon fas fa-exclamation-circle"></i>
                         </div>
@@ -127,7 +121,7 @@
                     </div>
                     <div class="field password">
                         <div class="input-area">
-                            <input type="password" placeholder="Contraseña" name="password">
+                            <input type="password" placeholder="Contraseña" name="password" required>
                             <i class="icon fas fa-lock"></i>
                             <i class="error error-icon fas fa-exclamation-circle"></i>
                         </div>

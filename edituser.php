@@ -1,10 +1,9 @@
 <?php include('includes/header.php'); ?>
-</header>
 <div class="body-s">
     <div class="container-r">
-        <div class="title-r">Crear cuenta</div>
+        <div class="title-r">Editar Usuario</div>
         <!-- Formulario de registro -->
-        <form id="formulario" action="validateRegister.php" class="form-r" method="POST" enctype="multipart/form-data">
+        <form id="formulario" action="editarperfil.php" class="form-r" method="POST" enctype="multipart/form-data">
             <div class="user-details" id="details">
                 
                 <div class="input-box" id="group-name">
@@ -32,14 +31,7 @@
                     </div>
                     <p class="form-input-error">El telefono solo puede contener numeros</p>
                 </div>
-                <div class="input-box" id="group-user">
-                    <label for="user" class="details-label">Nombre de usuario</label>
-                    <div class="form-group-input">
-                        <input class="input-r" type="text" placeholder="john123" name="user" id="user" required>
-                        <i class="form-status-validate fas fa-times-circle"></i>
-                    </div>
-                    <p class="form-input-error">El usuario solo puede contener letras, numeros y guion bajo</p>
-                </div>
+                
                 <div class="input-box" id="group-password">
                     <label for="password" class="details-label">Contraseña</label>
                     <div class="form-group-input">
@@ -56,10 +48,11 @@
                     </div>
                     <p class="form-input-error">Las contraseña deben ser iguales</p>
                 </div>
+
                 <div class="input-box">
                     <label for="photo" class="details-label">Imagen de perfil</label>
                     <div class="form-group-input">
-                        <input class="foto" type="file" name="foto" id="photo" required>
+                        <input class="foto" type="file" name="foto" id="photo">
                     </div>
                 </div>
                 <!-- Terminos y condiciones -->
@@ -81,6 +74,5 @@
         </form>
     </div>
 </div>
-
 
 <?php include('includes/footer.php'); ?>

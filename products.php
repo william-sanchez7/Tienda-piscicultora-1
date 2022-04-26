@@ -1,6 +1,7 @@
 <?php include('includes/header.php');?>
 </header>
 <!-- MAIN -->
+<main>
 <section class="section">
     <?php if(isset($_POST['btnAccion'])){?>
     <!-- MUESTRA LOS PRODUCTOS GUARDADOS EN LA VARIABLE DE SESION -->
@@ -122,6 +123,6 @@
         <?php } ?>
     </div>
 </section>
-
+</main>
  
 <?php include('includes/footer.php'); ?>

@@ -6,7 +6,7 @@
 <main>
     <section class="section featured">
         <div class="title">
-            <h1>Productos</h1>
+            <h1>Historial de pedidos</h1>
         </div>
         
         <div class="product-center container"></div>

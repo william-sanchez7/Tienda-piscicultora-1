@@ -10,7 +10,7 @@
                 </div>
                 <div class="footer-center">
                     <h3>INFORMACIÓN</h3>
-                    <a href="#">Mi cuenta</a>
+                    <a href="edituser.php">Mi cuenta</a>
                     <a href="index.php#about">Acerca de</a>
                     <a href="#">Políticas y privacidad</a>
                     <a href="#">Términos y condiciónes</a>
@@ -37,5 +37,6 @@
     <script src="script/login.js"></script>
     <script src="script/register.js"></script>
     <script src=script/popupuser.js> </script>
+    <script src="script/redireccion.js"></script>
 </body>
 </html>

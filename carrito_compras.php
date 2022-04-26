@@ -29,23 +29,33 @@
 									$mensaje.="OK PRECIO".$precio."</br>";
 								}else{$mensaje.="oops... error en el precio"."</br>"; break;}
 			
-					// ALMACENA EN LA VARIABLE DE SESIÓN LOS VALORES RECIBIDOS POR LAS VARIABLES DEL FORMULARIO 
+					//usé la verificación para qué solo las personas que hayan iniciado sesión en la plataforma
+					//puedan ingresar al carrito de compras
+					
 					if(!isset($_SESSION['CARRITO'])){
-						$productos = array(
-						'ID'=>$id,
-						'NOMBRE'=>$nombre,
-						'CANTIDAD'=>$cantidad,
-						'PRECIO'=>$precio,
-						);
-						$_SESSION['CARRITO'][0]=$productos;
+						
+						if(isset($_SESSION['user'])){
+							$productos = array(
+								'ID'=>$id,
+								'NOMBRE'=>$nombre,
+								'CANTIDAD'=>$cantidad,
+								'PRECIO'=>$precio,
+								);
+								$_SESSION['CARRITO'][0] = $productos;
+						}else{
+							header("location: mostrar_carrito.php");
+							//echo "<script> alert('Inicia sesión para comprar');</script>";
+						}
+						
 					}
 					
-					else{
+					else{	
+							
+
 							$idProductos=array_column($_SESSION['CARRITO'],"ID");
 							if(in_array($id,$idProductos)){
 								echo "<script> alert('El producto ya fué seleccionado'); </script>";
-							}
-							else{
+							}else{
 								$numeroProductos=count($_SESSION['CARRITO']);
 								$productos = array(
 								'ID'=>$id,
@@ -72,7 +82,8 @@
 						}
 					}	
 					else{
-						$mensaje= "oops... ID incorrecto".$id."</br>";
+						$mensaje= "oops... ID incorrecto"."</br>";
+						echo $mensaje;
 					}
 				break;
 			}
