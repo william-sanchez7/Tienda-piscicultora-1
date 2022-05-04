@@ -33,21 +33,14 @@
         $insertUser->bindParam(':ROL',$rol);
         
         $insertUser->execute();
-        
         header('Location: index.php');
+        //
         if(move_uploaded_file($tmp_name, $destino)){
             return true;
         }
+        
     }
    
         return false;
-    
-
-    
-
-    echo "Los datos ingresados son:".$name.$rol.$email.$user.$password.$tellphone;
-    
-    
-
-    
+        
 ?>

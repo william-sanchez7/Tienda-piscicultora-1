@@ -14,8 +14,8 @@
                 </div>
 
                 </div>
-                    <div class="slider-btn slider-btn-left" id="btn-left">&#60;</div>
-                    <div class="slider-btn slider-btn-right" id="btn-right">&#62;</div>
+                    <div class="slider-btn slider-btn-left" id="btn-left"><i class='bx bxs-chevron-left'></i></div>
+                    <div class="slider-btn slider-btn-right" id="btn-right"><i class='bx bxs-chevron-right'></i></div>
                 </div>
             </div>
         </div>
@@ -41,17 +41,14 @@
                     <div class="product">
                         <div class="product-header">
                             
-                                <img title="<?php echo $producto['nombre_producto']; ?>"
+                                <img class="item-image" title="<?php echo $producto['nombre_producto']; ?>"
                                 src="<?php echo $producto['imagen_producto']; ?>"
                                 alt="<?php echo $producto['nombre_producto']; ?>">
                             
-                            <!-- ICONO DE AGREGAR AL CARRITO -->
-                            <ul class="icons">
-                                <a href="mostrar_carrito.php"><span><i class="bx bx-shopping-bag"></i></span></a>   
-                            </ul>
+                            
                             <!-- DETALLES DEL PRODUCTO -->
                             <div class="product-footer">
-                                <a href="#"><h3 class="item-title"><?php echo $producto['nombre_producto'];?> x 1000kg</h3></a>
+                                <h3 class="item-title"><?php echo $producto['nombre_producto'];?> x 1000kg</h3>
                                 <h5>Precio Ahora </h5>
                                 <h4 class="price">$
                                     <?php 
@@ -65,21 +62,22 @@
                                 <!-- FORMULARIO PARA ENVIAR LA INFORMACIÓN ENCRIPTADA AL CARRITO DE COMPRAS -->
                                 
                             </div>
-                            <form action="products.php" method="POST">
-                                    <input type="hidden" name="id" id="id" value="<?php echo $producto['id_productos']; ?>">
-                                    <input type="hidden" name="nombre" id="nombre" value="<?php echo $producto['nombre_producto']; ?>">
-                                    <input type="hidden" name="imagen" id="imagen" value="<?php echo $producto['imagen_producto']; ?>">
-                                    <input type="hidden" name="precio" id="precio" value="<?php echo $subTotal; ?>">
-                                    <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1; ?>">
+                            <form >
+                                    <input type="hidden" name="id" class="item-id" value="<?php echo $producto['id_productos']; ?>">
+                                    <input type="hidden" name="nombre"  value="<?php echo $producto['nombre_producto']; ?>">
+                                    <input type="hidden" name="imagen"  value="<?php echo $producto['imagen_producto']; ?>">
+                                    <input type="hidden" name="precio"  value="<?php echo $subTotal; ?>">
+                                    <input type="hidden" name="cantidad"  value="<?php echo 1; ?>">
                                     <button class="button-product" 
-                                    type="submit" 
-                                    name="btnAccion"
+                                 
+                                    
                                     >Comprar</button>
                             </form>
                         </div>
                     </div>
                 <?php } ?>
             </div>
+
         </section>
 
         <section class="section contactUs" id="contact">
@@ -156,10 +154,7 @@
                     </div>
                     <!-- Mapa -->
                     <div class="contact map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d127295.
-                        76612158972!2d-75.2568187411721!3d4.412457376919026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-                        1!5e0!3m2!1ses!2sco!4v1636076053088!5m2!1ses!2sco" 
-                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                       
                     </div>
                 </div>
         </section>
@@ -210,5 +205,5 @@
                 </div>
         </section>
     </main>
-<?php include('includes/footer.php'); ?>
+<?php require('includes/footer.php'); ?>
     

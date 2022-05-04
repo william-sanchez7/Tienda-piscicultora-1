@@ -31,10 +31,10 @@
     <!-- Custom Script -->
     
     <script src="script/slider.js"></script>
+    <script src="script/shoppingcart.js"></script>
     <script src="script/popup.js"></script>
     <script src="script/tienda.js"></script>
     <script src="script/index.js"></script>
-    <script src="script/login.js"></script>
     <script src="script/register.js"></script>
     <script src=script/popupuser.js> </script>
     <script src="script/redireccion.js"></script>

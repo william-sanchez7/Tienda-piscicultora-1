@@ -7,4 +7,5 @@
     }catch(PDOException $e){
         echo "<script> alert('error'); </script>";
     }
+
 ?>

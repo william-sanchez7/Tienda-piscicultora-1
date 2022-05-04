@@ -88,26 +88,46 @@ entradas.forEach((input) =>{
 });
 
 formulario.addEventListener('submit', (e) =>{
+	
 	const TyC = document.getElementById('terminos');//terminos y condiciones
 	//condición para verificar si los datos del objeto 'Campos' son verdaderos o falsos
 	if(campos.user && campos.name && campos.email && campos.password && campos.tellphone && TyC.checked){
-		// document.getElementById('form-msj-exito').classList.add('form-msj-exito-active');
+		document.getElementById('form-msj-exito').classList.add('form-msj-exito-active');
 		//Función con tiempo limite del mensaje de exito
+		e.preventDefault()
 		setTimeout(() =>{
-			alert('Registrado');
-			// swal.fire({
-			// 	title: "Registrado!",
-			// 	text: "Ya puedes iniciar sesión",
-			// 	icon: 'success',
-			// 	confirmButtonText: 'Continuar'
-			// });
-		}, 5000);	
-		// document.querySelectorAll('.form-group-correct').forEach((icono) => {
-		// 	icono.classList.remove('form-group-correct');
-		// });
+			
+			swal.fire({
+			 	title: "Registrado!",
+			 	text: "Ya puedes iniciar sesión",
+			 	icon: 'success',
+				confirmButtonText: 'Continuar',
+				timer: 4000,
+				timerProgressBar: true,
+			 });
+			 
+		}, 0);	
+		setTimeout(() =>{
+			 formulario.submit();
+		}, 4000);	
+			document.querySelectorAll('.form-group-correct').forEach((icono) => {
+		 	icono.classList.add('form-group-correct');
+		});
+		
 	}
 	else{
-		alert('Como dijo mi papá, fuiste un Error');
+		e.preventDefault()
+		setTimeout(() =>{
+		
+			swal.fire({
+			 	title: "Llena el formulario correctamente!",
+			 	text: "Intenta de nuevo!",
+			 	icon: 'error',
+				confirmButtonText: 'Continuar',
+				timer: 5000,
+				timerProgressBar: true,
+			 });
+		}, 0);
 		document.getElementById('msj-error').classList.add('msj-error-active');
 	}
 });

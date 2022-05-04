@@ -10,7 +10,7 @@
                 <div class="input-box" id="group-name">
                     <label for="name" class="details-label">Nombres y apellidos</label>
                     <div class="form-group-input">
-                        <input class="input-r" type="text" placeholder="Ingresa tú nombre" name="name" id="name" required>
+                        <input class="input-r" type="text" placeholder="Ingresa tú nombre" name="name" id="name">
                         <i class="form-status-validate fas fa-times-circle"></i>
                     </div>
                     <p class="form-input-error">El nombre solo puede contener letras y espacios</p>
@@ -18,7 +18,7 @@
                 <div class="input-box" id="group-email">
                     <label for="email" class="details-label">Correo</label>
                     <div class="form-group-input">
-                        <input class="input-r" type="email" placeholder="correo@correo.com" name="email" id="email" required>
+                        <input class="input-r" type="email" placeholder="correo@correo.com" name="email" id="email">
                         <i class="form-status-validate fas fa-times-circle"></i>   
                     </div>
                     <p class="form-input-error">El correo solo puede contener letras, numeros, puntos y guion bajo</p>
@@ -27,7 +27,7 @@
                 <div class="input-box" id="group-tellphone">
                     <label for="tellphone" class="details-label">Teléfono</label>    
                     <div class="form-group-input">
-                        <input class="input-r" type="text" placeholder="3223125909" name="tellphone" id="tellphone" required>
+                        <input class="input-r" type="text" placeholder="3223125909" name="tellphone" id="tellphone">
                         <i class="form-status-validate fas fa-times-circle"></i>
                     </div>
                     <p class="form-input-error">El telefono solo puede contener numeros</p>
@@ -35,7 +35,7 @@
                 <div class="input-box" id="group-user">
                     <label for="user" class="details-label">Nombre de usuario</label>
                     <div class="form-group-input">
-                        <input class="input-r" type="text" placeholder="john123" name="user" id="user" required>
+                        <input class="input-r" type="text" placeholder="john123" name="user" id="user">
                         <i class="form-status-validate fas fa-times-circle"></i>
                     </div>
                     <p class="form-input-error">El usuario solo puede contener letras, numeros y guion bajo</p>
@@ -43,7 +43,7 @@
                 <div class="input-box" id="group-password">
                     <label for="password" class="details-label">Contraseña</label>
                     <div class="form-group-input">
-                        <input class="input-r" type="password" placeholder="Ingresa tú contraseña" name="password" id="password" required>
+                        <input class="input-r" type="password" placeholder="Ingresa tú contraseña" name="password" id="password">
                         <i class="form-status-validate fas fa-times-circle"></i>
                     </div>
                     <p class="form-input-error">La contraseña debe tener más de 8 dígitos</p>
@@ -51,7 +51,7 @@
                 <div class="input-box" id="group-password2">
                     <label for="password2" class="details-label">Confirmar contraseña</label>
                     <div class="form-group-input">
-                        <input class="input-r" type="password" placeholder="Ingresa tú contraseña" name="password2" id="password2" required>
+                        <input class="input-r" type="password" placeholder="Ingresa tú contraseña" name="password2" id="password2">
                         <i class="form-status-validate fas fa-times-circle"></i>
                     </div>
                     <p class="form-input-error">Las contraseña deben ser iguales</p>
@@ -59,13 +59,13 @@
                 <div class="input-box">
                     <label for="photo" class="details-label">Imagen de perfil</label>
                     <div class="form-group-input">
-                        <input class="foto" type="file" name="foto" id="photo" required>
+                        <input class="foto" type="file" name="foto" id="photo">
                     </div>
                 </div>
                 <!-- Terminos y condiciones -->
                 <div class="input-box" id="group-terminos">
                     <label class="details-label">
-                        <input class="form-checkbox" type="checkbox" id="terminos" name="terminos" required>
+                        <input class="form-checkbox" type="checkbox" id="terminos" name="terminos">
                         Acepto los términos y condiciones 
                     </label>
                 </div>
@@ -75,7 +75,7 @@
             </div>
 
             <div class="button-r">
-                <button type="submit" class="form-btn" name="btnRegister" id="btnRegister">Enviar</button>
+                <button type="submit" class="form-btn" name="btnRegister" id="btnRegister" >Enviar</button>
                 <p class="form-msj-exito" id="form-msj-exito">Formulario enviado exitosamente!</p>
             </div>
         </form>

@@ -11,6 +11,10 @@
     <meta name="keywords" content="tolifish, mojarra ibagué, comprar mojarra, mojarra roja">
     <title>Toli Fish</title>
     <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" type="image/png" href="img/icon_tolifish.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,12 +22,14 @@
     
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <!-- sweet alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <!-- CUSTOM STYLESHEET -->
+    <!-- CUSTOM STYLESHEET
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    /> -->
+    <script src="script/login.js"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -55,13 +61,23 @@
                         
                         
                         <li class="nav-item">
-                            <a href="mostrar_carrito.php" class="nav-link icon-one">
+                        <a href="#" class="shopping-car" id="shoppingcart-open">
+                            <span class="shopping-car__icon-car">
                             <i class='bx bxl-shopify'></i>
-                                <!-- MUESTRA EL CONTADOR DEL CARRITO DE COMPRAS -->
+                            </span>
+                            <span class="shopping-car__count-items"><?= (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);?></span>
+                        </a>
+                            <!-- <a href="#" class="nav-link icon-one" id="shoppingcart-open">
+                                
+                            
                                 <span class="car-count">
-                                <p><?= (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);?></p>
+                                    
                                 </span>
-                            </a>
+                            </i>
+                                
+                              
+                                
+                            </a> -->
                         </li>
                         <li class="nav-item"><?php iconoDeAccesoUsuario(); ?></li>
                     </ul>
@@ -71,7 +87,91 @@
                 <div class="hamburguer"><i class='bx bx-menu'></i></div>
             </div>
         </nav>
-        
+        <!-- Carrito de compras -->
+
+        <div class="overlay-carrito" id="overlay-shoppincart">
+                
+            <div class="shopping-title-header">
+                <div class="container-shoppingcart">
+                     <span class="shoppingcart-cerrar" id="shoppingcart-close"><i class='bx bxs-x-circle'></i></span>       
+                </div>
+                <img src="img/bienes.png" alt=""><h1>Carrito</h1> 
+            </div>
+            
+            <div class="popup-carritocompras" id="popup-shoppingcart">
+               
+
+                <table class="table-shoppingcart">
+                    <thead class="header-cart">
+                        <tr><td>bobachico</td><td>Precio</td><td>Cantidad</td><td>-</td></tr>
+                    </thead>
+                    
+                    <tbody class="body-cart">
+                        <tr>
+                            <td class="img"><img src="img/calamares.jpg" alt=""> </td>
+                            <td class="precio"><h1>$ 1.000</h1></td> 
+                            <td class="cantidad"><h1>14</h1></td>
+                            <td class="icono"><i class='bx bx-x-circle'></i></td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="foot-cart">
+                        <tr>
+                            <td class="value-cart"><h1>Subtotal:</h1></td>
+                            <td class="subtotal-cart"><h1>$10.000</h1></td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <table class="table-shoppingcart">
+                    <thead class="header-cart">
+                        <tr><td>bobachico</td><td>Precio</td><td>Cantidad</td><td>-</td></tr>
+                    </thead>
+                    
+                    <tbody class="body-cart">
+                        <tr>
+                            <td class="img"><img src="img/bocachico.jpg" alt=""> </td>
+                            <td class="precio"><h1>$ 1.000</h1></td> 
+                            <td class="cantidad"><h1>14</h1></td>
+                            <td class="icono"><i class='bx bx-x-circle'></i></td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="foot-cart">
+                        <tr>
+                            <td class="value-cart"><h1>Subtotal:</h1></td>
+                            <td class="subtotal-cart"><h1>$10.000</h1></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <table class="table-shoppingcart">
+                    <thead class="header-cart">
+                        <tr><td>bobachico</td><td>Precio</td><td>Cantidad</td><td>-</td></tr>
+                    </thead>
+                    
+                    <tbody class="body-cart">
+                        <tr>
+                            <td class="img"><img src="img/mojarraRoja.jpg" alt=""> </td>
+                            <td class="precio"><h1>$ 1.000</h1></td> 
+                            <td class="cantidad"><h1>14</h1></td>
+                            <td class="icono"><i class='bx bx-x-circle'></i></td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="foot-cart">
+                        <tr>
+                            <td class="value-cart"><h1>Subtotal:</h1></td>
+                            <td class="subtotal-cart"><h1>$10.000</h1></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="footer-shoppingcart">
+                        <div class="text-shoppingcartfooter">
+                            <h1>Total:</h1>
+                        </div>
+                        <div class="value-total"><h1>$10.000</h1></div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Perfil de usuario -->
         <div class="overlay-user" id="overlay-user">
             <div class="popup-user" id="popup-user">
@@ -113,7 +213,7 @@
                 <form action="includes/loginValidate.php" class="form-login" method="POST" id="formRegister">
                     <div class="field email">
                         <div class="input-area">
-                            <input type="text" placeholder="Cuenta" name="user" required>
+                            <input type="text" placeholder="Cuenta" name="user" id="cuenta-user">
                             <i class="icon fas fa-user-tie"></i>
                             <i class="error error-icon fas fa-exclamation-circle"></i>
                         </div>
@@ -121,14 +221,14 @@
                     </div>
                     <div class="field password">
                         <div class="input-area">
-                            <input type="password" placeholder="Contraseña" name="password" required>
+                            <input type="password" placeholder="Contraseña" name="password" id="cuenta-clave">
                             <i class="icon fas fa-lock"></i>
                             <i class="error error-icon fas fa-exclamation-circle"></i>
                         </div>
                         <div class="error error-text">El campo está vacío</div>
                     </div>
                     <div class="pass-link"><a href="#">Olvidaste tú contraseña?</a></div>
-                    <input type="submit" value="Entrar" name="register">
+                    <input type="submit" value="Entrar" name="register" id="btn-login">
                 </form>
                 <div class="signup-link">No tienes cuenta?<a href="register.php">Regístrate ahora</a></div>
             </div>
