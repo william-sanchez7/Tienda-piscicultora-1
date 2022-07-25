@@ -13,7 +13,7 @@
     
     $img_file = $foto['name'];
     $img_type = $foto['type'];
-    $foldImage = "img";
+    $foldImage = "../public/img";
 
     if(((strpos($img_type, "gif") || strpos($img_type, "jpeg") || strpos($img_type, "jpg")) 
     || strpos($img_type, "png"))){

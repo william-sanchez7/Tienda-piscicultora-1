@@ -87,7 +87,8 @@ entradas.forEach((input) =>{
 	input.addEventListener('blur', validarFormulario);//al darle click en otro lado
 });
 
-formulario.addEventListener('submit', (e) =>{
+try{
+	formulario.addEventListener('submit', (e) =>{
 	
 	const TyC = document.getElementById('terminos');//terminos y condiciones
 	//condición para verificar si los datos del objeto 'Campos' son verdaderos o falsos
@@ -124,10 +125,12 @@ formulario.addEventListener('submit', (e) =>{
 			 	text: "Intenta de nuevo!",
 			 	icon: 'error',
 				confirmButtonText: 'Continuar',
-				timer: 5000,
+				timer: 2000,
 				timerProgressBar: true,
 			 });
 		}, 0);
 		document.getElementById('msj-error').classList.add('msj-error-active');
 	}
-});
+	});
+}catch(error){
+}

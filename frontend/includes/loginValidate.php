@@ -1,6 +1,6 @@
 <?php
 include('conexion.php');
-    if($_SERVER['REQUEST_METHOD']=="POST"){//recibe el metodo post por defecto
+   //recibe el metodo post por defecto
         if(isset($_POST['register'])){
             $user = $_POST['user'];
             $password = $_POST['password'];
@@ -17,12 +17,16 @@ include('conexion.php');
         if(!session_id()) session_start();
         if($numeroRegistros>=1){
                 $_SESSION['user'] = $usuario;
+                if(isset($_POST['register'])){
                 echo json_encode(array('success' => 1));
+                }
                
         }else{
-            echo json_encode(array('success' => 0));
+            if(isset($_POST['register'])){
+                echo json_encode(array('success' => 0));
+            }
         }
-    }
+    
 
 ?>
 

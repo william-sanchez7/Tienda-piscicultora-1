@@ -1,54 +1,40 @@
-<?php require_once('includes/header.php'); ?>  
+<?php require_once('includes/header.php');?>  
         <!-- SE AGREGA EL CARROUSEL PARA MOSTRAR CONTENIDO PUBLICITARIO O PROMOCIONES -->
         <div class="container-slider">
             <div class="slider" id="slider">
-
                 <div class="slider-section">
-                    <img src="img/carrousel4.jpg" class="slider-img">
+                    <img src="../public/img/carrousel4.jpg" class="slider-img">
                 </div>
                 <div class="slider-section">
-                    <img src="img/carrousel2.jpg" class="slider-img">
+                    <img src="../public/img/carrousel2.jpg" class="slider-img">
                 </div>
                 <div class="slider-section">
-                    <img src="img/carrousel3.jpg" class="slider-img">
+                    <img src="../public/img/carrousel3.jpg" class="slider-img">
                 </div>
-
                 </div>
                     <div class="slider-btn slider-btn-left" id="btn-left"><i class='bx bxs-chevron-left'></i></div>
                     <div class="slider-btn slider-btn-right" id="btn-right"><i class='bx bxs-chevron-right'></i></div>
                 </div>
             </div>
         </div>
-
     </header>
-    <!-- MAIN -->
     <main>
         <section class="section" id="product">
-            <!-- TITULO -->
             <div class="title">
                 <h1>Productos</h1>
             </div>
-
             <div class="product-center container">
-                <!-- PREPARA Y ALMACENA LOS DATOS EN UNA VARIABLE -->
                 <?php
                     $sentencia=$pdo->prepare("SELECT * FROM `productos`");//VARIABLE PDO IN THE ARCHIVE OF CONEXION
                     $sentencia->execute();
                     $listaProductos=$sentencia->fetchAll(PDO::FETCH_ASSOC);//devuelve un array que contiene todo las filas de resultado
                 ?>
-                <!-- CICLO PARA MOSTRAR LOS PRODUCTOS  -->
                 <?php foreach($listaProductos as $producto){ ?>
-                    <div class="product">
-                        <div class="product-header">
-                            
-                                <img class="item-image" title="<?php echo $producto['nombre_producto']; ?>"
-                                src="<?php echo $producto['imagen_producto']; ?>"
-                                alt="<?php echo $producto['nombre_producto']; ?>">
-                            
-                            
-                            <!-- DETALLES DEL PRODUCTO -->
+                    <div class="product" id="product-<?php echo $producto['id_productos']; ?>">
+                        <div class="product-header">          
+                            <img class="item-image" title="<?php echo $producto['nombre_producto']; ?>" src="<?php echo $producto['imagen_producto']; ?>" alt="<?php echo $producto['nombre_producto']; ?>">
                             <div class="product-footer">
-                                <h3 class="item-title"><?php echo $producto['nombre_producto'];?> x 1000kg</h3>
+                                <h3 class="item-title"><?php echo $producto['nombre_producto'];?> <h3> x 1000g</h3> </h3>
                                 <h5>Precio Ahora </h5>
                                 <h4 class="price">$
                                     <?php 
@@ -58,34 +44,29 @@
                                     $subImpoconsumo=$producto['impoconsumo'];
                                     $impoconsumo= ($subImpoconsumo*$precio)/100; 
                                     $subTotal=$precio+$iva+$impoconsumo;
-                                    echo number_format($subTotal)." Kg";?></h4>
-                                <!-- FORMULARIO PARA ENVIAR LA INFORMACIÓN ENCRIPTADA AL CARRITO DE COMPRAS -->
-                                
+                                    echo number_format($subTotal);?> 
+                                    CO
+                                </h4>
                             </div>
-                            <form >
-                                    <input type="hidden" name="id" class="item-id" value="<?php echo $producto['id_productos']; ?>">
-                                    <input type="hidden" name="nombre"  value="<?php echo $producto['nombre_producto']; ?>">
+                            <form id="carrito-form-<?php echo $producto['id_productos']; ?>">
+                                    <input type="hidden" class="id_producto" name="id" value="<?php echo $producto['id_productos']; ?>">
+                                    <input type="hidden" name="nombre" value="<?php echo $producto['nombre_producto']; ?>">
                                     <input type="hidden" name="imagen"  value="<?php echo $producto['imagen_producto']; ?>">
                                     <input type="hidden" name="precio"  value="<?php echo $subTotal; ?>">
                                     <input type="hidden" name="cantidad"  value="<?php echo 1; ?>">
-                                    <button class="button-product" 
-                                 
-                                    
-                                    >Comprar</button>
+                                    <button class="button-product">Comprar</button>
+                                    <button data-carrito-id="<?php echo $producto['id_productos']; ?>" id="id-producto-<?php echo $producto['id_productos'];?>" class="agregar_carrito"><i class='bx bxs-cart-add'></i></button>
                             </form>
                         </div>
                     </div>
                 <?php } ?>
             </div>
-
         </section>
-
         <section class="section contactUs" id="contact">
                 <div class="title">
                     <h1>Contáctenos</h1>
                 </div>
                 <div class="box">
-                    <!-- Formulario de contacto -->
                     <div class="contact form">
                         <h3>Enviar un mensaje</h3>
                         <form action="contacto.php" method="POST">
@@ -100,7 +81,6 @@
                                         <input type="text" name="apellido" placeholder="Doe">
                                     </div>
                                 </div>
-
                                 <div class="row50">
                                     <div class="inputBox">
                                         <span>Correo</span>
@@ -111,14 +91,12 @@
                                         <input type="text" name="telefono" placeholder="+57 3223454312">
                                     </div>
                                 </div>
-                                
                                 <div class="row100">
                                     <div class="inputBox">
                                         <span>Mensaje</span>
                                         <textarea placeholder="Escribe tú mensaje aqui..." name="mensaje"></textarea>
                                     </div>
                                 </div>
-
                                 <div class="row100">
                                     <div class="inputBox">
                                         <input type="submit" value="Enviar">
@@ -127,7 +105,7 @@
                             </div>
                         </form>
                     </div>
-                    <!-- Caja de información --> 
+                    <!-- BOX INFORMATION --> 
                     <div class="contact info">
                         <h3>Información de contacto</h3>
                         <div class="infoBox">
@@ -143,7 +121,7 @@
                                 <span><i class="fas fa-phone-alt"></i></span>
                                 <a href="tel:+57 3123232424">+57 3122323242</a>
                             </div>
-                            <!-- Redes sociales -->
+                            <!-- SOCIAL MEDIA -->
                             <ul class="sci">
                                 <li><a href="https://es-la.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i> </a></li>
                                 <li><a href="https://www.instagram.com/?hl=es" target="_blank"><i class="fab fa-instagram"></i> </a></li>
@@ -152,16 +130,13 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- Mapa -->
-                    <div class="contact map">
-                       
-                    </div>
+                    <!-- MAP -->
+                    <div class="contact map"></div>
                 </div>
         </section>
-
+        <!-- ABOUT -->
         <section class="section about" id="about">
             <div class="title"><h1>Quienes somos</h1></div>
-                
                 <div class="about-section">
                     <div class="inner-container">
                         <h1>Toli fish</h1>
@@ -178,25 +153,23 @@
                         </p>
                     </div>
                 </div>
-                
                 <div class="container-comments">
                     <h1 class="heading"><span>Cónoce</span> Nuestros clientes</h1>
-                    
                     <div class="profiles">
                         <div class="profile">
-                            <img src="img/perfil-mujer.jpg" alt="<a href='https://www.freepik.es/fotos/chicas-felices'>Foto de chicas felices creado por benzoix - www.freepik.es</a>" class="profile-img">
+                            <img src="../public/img/perfil-mujer.jpg" alt="<a href='https://www.freepik.es/fotos/chicas-felices'>Foto de chicas felices creado por benzoix - www.freepik.es</a>" class="profile-img">
                             <h3 class="comment-user-name">Isabella</h3>
                             <h5>Comprardora local</h5>
                             <p>Reconozco los esfuerzos de Tolifish en la calidad de sus productos, los cuales me ha permitido ofrecerles a mis clientes un pescado de calidad</p>
                         </div>
                         <div class="profile">
-                            <img src="img/william.jpg" alt="" class="profile-img">
+                            <img src="../public/img/william.jpg" alt="" class="profile-img">
                             <h3 class="comment-user-name">Fernando</h3>
                             <h5>Comprador comercial</h5>
                             <p>Lo qué mas me gusta de Tolifish es su gestión de entregas de sus productos, siempre rápido y correctas las entregas</p>
                         </div>
                         <div class="profile">
-                            <img src="img/martha.jpg" alt="<a href='https://www.freepik.es/fotos/mujer-emprendedora'>Foto de mujer emprendedora creado por karlyukav - www.freepik.es</a>" class="profile-img">
+                            <img src="../public/img/martha.jpg" alt="<a href='https://www.freepik.es/fotos/mujer-emprendedora'>Foto de mujer emprendedora creado por karlyukav - www.freepik.es</a>" class="profile-img">
                             <h3 class="comment-user-name">Martha</h3>
                             <h5>Distribuidora regional</h5>
                             <p>Tolifish ha demostrado gran responsabilidad en la entrega de sus productos y en su garantía de éstos mismos. Mis clientes les agrada y yo estoy satisfecha.</p>    
@@ -206,4 +179,3 @@
         </section>
     </main>
 <?php require('includes/footer.php'); ?>
-    

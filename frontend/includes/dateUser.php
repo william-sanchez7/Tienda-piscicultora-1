@@ -17,10 +17,14 @@ function resultadoDatosUsuario(){
     return $resultadoDatosUsuario;
 }
 function iconoDeAccesoUsuario(){
-    if(isset($_SESSION['user'])){
-        echo '<a href="#" class="btn-abrir-popup" id="popupuser"><img src="'.resultadoDatosUsuario()[0].'" alt="imagen usuario"></a>';
-    }else{
-        echo '<a href="#" class="btn-abrir-popup" id="btn-abrir-popup"><i class="bx bxs-user-circle bx-tada"></i></a>';
-    }   
+    try{
+        if(isset($_SESSION['user'])){
+            echo '<a class="btn-abrir-popup" id="popupuser"><img src="'.resultadoDatosUsuario()[0].'" alt="imagen usuario"></a>';
+        }else{
+            echo '<a class="btn-abrir-popup" id="btn-abrir-popup"><i class="bx bxs-user-circle bx-tada"></i></a>';
+        }
+    }catch(e){
+        console.log(e);
+    }    
 }
 ?>

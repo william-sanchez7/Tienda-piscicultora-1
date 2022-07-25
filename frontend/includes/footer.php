@@ -22,7 +22,7 @@
         
     </footer>
     <div class="footer-footer">
-            <h4>©William Sánchez Todos los derechos de autor reservados</h4>  
+            <h4>©William Sánchez Todos los derechos de autor reservados - ésta pagina es sumamente educativa, proyecto creado por un estudiante del SENA</h4>  
     </div>
     <!-- Alertas -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -37,6 +37,6 @@
     <script src="script/index.js"></script>
     <script src="script/register.js"></script>
     <script src=script/popupuser.js> </script>
-    <script src="script/redireccion.js"></script>
+    <script src="script/pedido.js"></script>
 </body>
 </html>
