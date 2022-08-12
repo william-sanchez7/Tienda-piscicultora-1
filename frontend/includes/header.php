@@ -85,14 +85,12 @@
                         <h4>Descuento: <h4>
                         <h4>Total: <h4>
                     </div>
-                    <div class="price-pay">
-                        <h4>$0</h4>
-                        <h4>$0</h4>
-                        <h4>$0</h4>
+                    <div class="price-pay" id="pricepaytotal">
+                        <!-- escribir esos h4 con el innerHTML -->
                     </div>
                 </div>
                 <div class="confirm-pay">
-                    <button>Confirmar compra</button>
+                    <a href="products.php" id="processpay">Proceder a pagar</a>
                 </div>
             </div>
         </div>

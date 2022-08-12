@@ -52,7 +52,7 @@
                                     <input type="hidden" class="id_producto" name="id" value="<?php echo $producto['id_productos']; ?>">
                                     <input type="hidden" name="nombre" value="<?php echo $producto['nombre_producto']; ?>">
                                     <input type="hidden" name="imagen"  value="<?php echo $producto['imagen_producto']; ?>">
-                                    <input type="hidden" name="precio"  value="<?php echo $subTotal; ?>">
+                                    <input data-price-id="<?php echo $producto['id_productos']?>" type="hidden" name="precio"  value="<?php echo $subTotal; ?>">
                                     <input type="hidden" name="cantidad"  value="<?php echo 1; ?>">
                                     <button class="button-product">Comprar</button>
                                     <button data-carrito-id="<?php echo $producto['id_productos']; ?>" id="id-producto-<?php echo $producto['id_productos'];?>" class="agregar_carrito"><i class='bx bxs-cart-add'></i></button>
