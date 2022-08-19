@@ -3,26 +3,23 @@ window.onload = function () {
   const precioTotal = document.getElementById('pricepaytotal');
   let idButtonCar = document.querySelectorAll(`[id*=id-producto-]`);
   let form = document.querySelectorAll(`[id*=carrito-form-]`);
+  const btnOpenCart = document.getElementById('shoppingcart-open');
   
-    // console.log(btnpay);
-  
-    for (var i = 0; i < idButtonCar.length; i++) {//recorro el array con los id's del formulario
+  for(var i = 0; i < idButtonCar.length; i++) {//recorro el array con los id's del formulario
       form[i].addEventListener("submit", function (e) {
         e.preventDefault();
       });
       
-      idButtonCar[i].addEventListener("click", function () {
+      idButtonCar[i].addEventListener("click", function(){
         let producto_id = this.getAttribute("data-carrito-id");//atraigo el atributo del formulario
-        let card_producto = document.querySelector(`#carrito-form-${producto_id}`);//formulario con el atributo
         let product = document.querySelector(`#product-${producto_id}`);//card del producto con sus datos
         read_dateProduct(product);
         insert_dateCart();
-        totalPrice();
-        const btnOpenCart = document.getElementById('shoppingcart-open');
+        
         btnOpenCart.click();//Activa el eventListener, archivo shoppingcart.js
       });
-    }
-    insert_dateCart();
+  }
+  insert_dateCart();
     
     function read_dateProduct(product){
       let id_p = product.querySelector('[data-carrito-id]').getAttribute("data-carrito-id");
@@ -35,7 +32,7 @@ window.onload = function () {
       }
       save_product(infoProduct);
     }
-  
+    
     function insert_dateCart(){
       let produc_localStorage = obtain_product() || [];
       fila = "";
@@ -83,17 +80,14 @@ window.onload = function () {
               return {id, nombre, imagen, precio, cantidad: (id == obj.id && cantidad>1)? cantidad-=1 : cantidad};
             }
           }) 
-          
           let inputValue = document.querySelector(`[data-valueInput='${obj.id}']`);
-          
           if(inputValue.value >=1){
             inputValue.value = (obj.operation == "suma") ? +inputValue.value+1 : (inputValue.value>1) ? +inputValue.value-1 : inputValue.value;
           }else{
             inputValue.value = inputValue.value;
           }
-          console.log(inputValue.value);
-          
           localStorage.setItem("product", JSON.stringify(infoLocalStorage));
+          totalPrice();//Actualiza el precio total
         })
       });
       
@@ -105,6 +99,7 @@ window.onload = function () {
                 id: this.getAttribute('data-id-delete')
               }
               delete_dateCart(obj);
+              totalPrice();
             })
           } 
         } catch (error) {
@@ -112,7 +107,7 @@ window.onload = function () {
         }
         
     }
-   
+
   function delete_dateCart(info_product){
     let infoLocalStorage = obtain_product(); 
     let arrayProduct = infoLocalStorage.filter(element => element.id != info_product.id);
@@ -136,6 +131,7 @@ window.onload = function () {
        arrayProduct.push(info_product);
     }
     localStorage.setItem("product", JSON.stringify(arrayProduct))
+    
   }
 
   function obtain_product(){
@@ -149,8 +145,6 @@ window.onload = function () {
         return precio*cantidad;
     });
     let totalProductos = +productoLocalStorage.reduce((a,b) => a+b,0);//sumar el elemento anterior, por el actual
-    
-    console.log(totalProductos);
     precioTotal.innerHTML = 
     `
     <h4> ${totalProductos.toLocaleString('es-CO', {style: 'currency',currency: 'COP', minimumFractionDigits: 0})} </h4>

@@ -20,7 +20,6 @@ include('conexion.php');
                 if(isset($_POST['register'])){
                 echo json_encode(array('success' => 1));
                 }
-               
         }else{
             if(isset($_POST['register'])){
                 echo json_encode(array('success' => 0));

@@ -59,7 +59,7 @@
                 <div class="input-box">
                     <label for="photo" class="details-label">Imagen de perfil</label>
                     <div class="form-group-input">
-                        <input class="foto" type="file" name="foto" id="photo">
+                        <input class="foto" type="file" name="foto" id="photo" required>
                     </div>
                 </div>
                 <!-- Terminos y condiciones -->

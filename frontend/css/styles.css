@@ -509,137 +509,14 @@ main{
     border-radius: 5px;
     font-size: 1.9rem;
 }
+
+
+
+
 /* details product */
-
-.container-all{
-    height: 500px;
-    padding: 0px 30px 20px;
-    background: rgb(255, 255, 255);
-    width: 100%;
-}
-.container-main{
-    padding-top: 20px;
-    padding-bottom: 10px;
-    width: 100%;
-    height: 480px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0.5rem 1.5rem rgba(14, 8, 0, 0.575);
-}
-.container-header{
-    padding-top: 5px;
-    border-radius: 0px;
-    height: 10em;
-    width: 100%;
-    background-color: #f1f1f1;
-    
-}
-.container-header h1{
-    font-family: candara;
-    padding-top: 6px;
-    font-size: 3rem;
-    text-align: center;
-    color: rgb(43, 43, 43);
-    font-weight: 600;
-}
-.container-header h3,h5{
-    font-family: candara;
-    font-size: 14px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    color: rgb(70, 70, 70);
-}
-.container-body{
-    padding-top: 5px;
-    height: 8em;
-    width: 100%;
-    background-color: #f1f1f1;
-    
-}
-.container-body h3{
-    padding-top: 20px;
-}
-.precioOne{
-    font-size: 2rem;
-    text-align: center;
-    background: #f1f1f1;
-    color: rgb(16, 187, 16);
-    font-weight: 900;
-}
-.form-value{
-    text-align: center;
-    padding-top: 10px;
-}
-
-.addCar{
-    border-radius: 4px;
-    height: 34px;
-    width: 50px;
-    font-size: 20px;
-    background-color: rgb(41, 187, 5);
-    border: none;
-    color: white;
-}
-.buttonQuanty{
-    text-align: center;
-    font-size: 20px;
-    border-radius: 4px;
-    width: 50px;
-    height: 34px;
-    border: none;
-    background: rgb(212, 212, 212);
-    color: rgb(0, 0, 0);
-    outline: none;
-    opacity: 1;
-}
-.buttonConfirm{
-    font-size: 2rem;
-    border-radius: 4px;
-    border: none;
-    height: 3.4rem;
-    width: 15rem;
-    background: #ff6600;
-    color: white;
-}
+ 
 
 
-.container-footer{
-    width: 100%;
-}
-.Mtd-pago{
-    float: left;
-    background: #f1f1f1;
-    width: 50%;
-}
-.Mtd-pago h4{
-    font-family: candara;
-}
-.Mtd-envio{
-    float: right;
-    background: #f1f1f1;
-    width: 50%;
-}
-.bx.bxs-package{
-    font-size: 40px;
-    color: rgb(66, 66, 66);
-}
-.bx.bxs-store{ 
-    background-color: rgb(236, 255, 226);
-    font-size: 40px;
-    color: rgb(66, 66, 66);
-}
-.container-img{
-    height: 100%;
-    display: inline-block;
-    background-color: rgb(255, 255, 255);
-    width: 49%;
-}
-.container-img img{
-    border-radius: 5px;
-    height: 450px;
-    width: 100%;
-    padding-left: 12px;
-}
 /* botón */
 .container-description{
     border-radius: 20px;
@@ -1048,7 +925,7 @@ main{
     height: 3rem;
     padding-right: 3px;
     color: rgb(255, 255, 255);
-    background-color: red;
+    background-color: rgb(0, 255, 34);
     cursor: pointer;
     border: none;
     border-radius: 20px;
@@ -1081,33 +958,6 @@ main{
     padding: 1em;
     margin-top: 2px;
     opacity: 1;
-}
-.container-purchase{
-    margin-top: 2rem;
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center;
-    padding-right: auto;
-    padding-left: auto;
-    width: 100%;
-    background-color: rgba(255, 241, 116, 0.945);
-}
-.validate-purchase{
-    font-size: 15px;
-    width: 20%;
-    height: 4rem;
-    border: none;
-    border-radius: 4px;
-    color: rgb(36, 36, 36);
-    background-color: #42ff42c4;
-    font-weight: 600;
-    cursor: pointer;
-}
-.validate-purchase:hover{
-    transition: 0.3s;
-    background-color: #ffffffc4;
-    color: rgb(36, 36, 36);
-    border: 2px solid #42ff42c4;
 }
 .alert{
     border-radius: 1rem;
@@ -1229,6 +1079,7 @@ main{
     right: 0;
     height: 100%;
     padding-top: 0px;
+    width: 40rem;
 	visibility: hidden;
     z-index: 999;
     transition: .1s ease all;
@@ -1237,6 +1088,7 @@ main{
 .shopping-title-header{
     padding-top: 1.6rem;
     padding-bottom: 1.3rem;
+    width: 100%;
     text-align: center;
     background-color: #000000ad;
 }
@@ -1254,7 +1106,7 @@ main{
 .popup-carritocompras{
     padding-top: 1rem;
     padding: 2%;    
-    width: 21.8em;
+    width: 100%;
     height: 74%;
     display: grid;
     grid-template-columns: repeat(1, 4fr);
@@ -1291,10 +1143,9 @@ main{
 .footer-shoppingcart{
     display: grid;
     position: fixed;
-    background-color: rgb(26, 168, 1);
-    height: 14.1%;
-    width: 39.2rem;
     grid-template-columns: repeat(1, 1fr);
+    height: 14.1%;
+    width: 100%;
 }
 .text-pay h4{
     padding-left: 1rem;
@@ -1312,12 +1163,13 @@ main{
 .text-shoppingcartfooter{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    width: 40rem;
     background-color: rgb(247, 247, 247);
 }
 .confirm-pay{
-    display: flex;
+    display: grid;
     height: 2.7rem;
-    width: 39.2rem;
+    width: 40rem;
     background-color: rgb(255, 255, 255);
     flex-wrap: nowrap;
     padding: 1px;
@@ -1327,21 +1179,18 @@ main{
     border: none;
     height: 2.5rem;
     text-align: center;
-    width: 38rem;
+    width: 40rem;
     background: rgb(27, 122, 1);
-    border-radius: 5px;
     cursor: pointer;
     color: #fff;
     font-size: 1.7rem;
     font-family: 'Source Sans Pro';
 }
 .confirm-pay a:hover{
-    width: 38rem;
-    transition: 0.5s;
     background: rgb(26, 168, 1);
 }
 .table-shoppingcart{
-    width: 35.8rem;
+    width: 100%;
     border-radius: 7px;
     padding: 0.1rem;
     display: flex;
@@ -1352,19 +1201,19 @@ main{
     flex-wrap: wrap;
 }
 .table-shoppingcart:hover{
-    transform: scale(1.03);
+    transform: scale(1.01);
     transition: 0.6s;  
 }
 .head-cart{
-    display: flex;
-    width: 36rem;
+    display: grid;
+    width: 100%;
     background-color: #fc6006; 
-    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
     margin: 5px;
 }
 .body-cart{
     display: flex;
-    width: 36rem;
+    width: 100%;
     background-color: rgb(255, 255, 255);
     flex-wrap: wrap;
 }
@@ -1375,6 +1224,39 @@ main{
     margin: 0.4rem;
     background-color: rgb(182, 253, 142);
 }
+
+@media (max-width: 412px){
+    .overlay-carrito{
+        width: 100%;
+    }
+    .popup-carritocompras{
+        width: 100%;
+    }
+    .table-shoppingcart{
+        width: 100%;
+    }
+    .head-cart{
+    width: 100%;
+    }
+    .body-cart{
+        width: 100%;
+    } 
+    .img-shoppingcart{
+        width: 10rem;
+    }
+    .footer-shoppingcart{
+        width: 100%;
+    }  
+    .confirm-pay{
+        width: 100%;
+    }
+    .confirm-pay a{
+        width: 100%;
+    }
+    .confirm-pay a:hover{
+        width: 100%;
+    }
+}
 .img-shoppingcart img{
     border-radius: 3px;
     width: 100%;
@@ -1384,7 +1266,6 @@ main{
     display: flex;
     justify-content: center;
     width: 15.9rem;
-    background-color: #fc6006; 
 }
 .name-shopping{
     font-size: 1.5rem;
@@ -1421,7 +1302,6 @@ main{
     display: grid;
     place-items: center;
     margin-left: 1.6rem;
-    width: 4rem;
     color: rgb(255, 255, 255);
     background: rgba(35, 160, 1, 0.603);
 }
@@ -1823,6 +1703,8 @@ main{
     font-size: 2rem;
     background: #e20000;
 }
+
+
 /* Register */
 .body-s{
     display: flex;
@@ -1966,9 +1848,6 @@ main{
 .input-box-incorrect .input-r{
     border-color: red;
 }
-/* .input-box .input-r:active{
-    border-color: green;
-} */
 /* Botón */
 .form-r .button-r{
     height: 45px;
@@ -2006,4 +1885,154 @@ main{
     .user-details::-webkit-scrollbar{
         width: 0;
     }
+}
+/* details orders */
+.container-payindex{
+    height: 58rem;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    padding: 2rem;
+    background-color: #e3ffc0;
+}
+.list-product-pay{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    /* border: 1px solid rgb(202, 202, 202); */
+    border-radius: 5px;
+}
+.details-buyer{
+    height: 0px;
+}
+.details-buyer h1{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem;
+}
+.form-container-order{
+    height: 42rem;
+    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+.methods-pay{
+    width: 100%;
+    background-color: white;
+}
+.details-pay{
+    height: 90%;
+    background-color: #ffffff;
+}
+
+
+
+.validate-purchase{
+    background-color: rgb(2, 172, 25);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 4px;
+    height: 3rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1220px){
+    .container-payindex{
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0;
+    }
+}
+.productsPay{
+    display: grid;
+    grid-template-columns: repeat(4, 5fr);    
+}
+.imgPay{
+    width: 200px;
+}
+.nombreProductPay{
+    font-size: 1.6rem;
+}
+
+
+.form-orders{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.loginMessage{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.login-order{
+    width: 10rem;
+}
+.form-orders span{
+    font-size: 2rem;
+}
+.inputOrder{
+    width: 97%;
+    height: 3.4rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 5px;
+    margin: .8rem;
+    background-color: #ffffff;
+    outline: none;
+    border: 1px solid rgb(178, 255, 105);
+}
+.inputOrder::placeholder{
+    height: 100%;
+}
+.orders-header{
+background-color: rgb(255, 255, 255);
+height: 26rem;
+}
+.orders-header h1{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.methods-orders{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.bx-credit-card{
+    font-size: 3rem;
+}
+.bxs-package{
+    font-size: 3rem;
+}
+.method-pay-currency h4{
+    font-size: 2rem;
+}
+.method-shipping h4{
+    font-size: 2rem;
+}
+.count-pay-orders{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.title-order-pay{
+    text-align: right;
+}
+.title-order-pay h4{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.numbers-order-pay h5{
+    text-align: right;
+    margin-right: 1rem;
+    font-size: 1.4rem;
 }

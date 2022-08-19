@@ -32,14 +32,3 @@ window.addEventListener("scroll", () => {
         navBar.classList.remove("fix-nav");
     }
 });
-// let nombre = 'william', edad = 21;
-// const persona = {
-//     nombre,
-//     edad,
-// }
-// const people = new Map(); 
-// people.set('ciudad', 'ibagué');
-// const funcionFlecha = () => 'gola';
-// const mayorEdad = persona.edad > 17 ? 'eres mayor de edad' : 'eres menor de edad'; 
-
-// console.log(`Usando los maps: ${people} y los ifs recortados: ${mayorEdad}, también funcion flecha: ${funcionFlecha}`);

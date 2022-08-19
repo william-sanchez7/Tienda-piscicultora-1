@@ -1,4 +1,8 @@
-<?php require_once('includes/mvc.php');?>
+<?php
+    require_once('conexion.php');
+    require_once('includes/loginValidate.php'); 
+    require_once('includes/dateUser.php'); 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,6 +22,8 @@
     <link rel="icon" type="image/png" href="../public/img/icon_tolifish.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- BOX ICONS -->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <!-- sweet alert -->
@@ -62,7 +68,7 @@
                         <li class="nav-item"><?php iconoDeAccesoUsuario(); ?></li>
                     </ul>
                 <!-- CARRITO DE COMPRAS ICONO-->
-                </div><a href="mostrar_carrito.php" class="cart-icon"><i class='bx bxs-shopping-bag'></i></a>
+                </div><a id="open-shoppingcart-phone" class="cart-icon"><i class='bx bxs-shopping-bag'></i></a>
                 <!-- ICONO DEL MENÚ PARA EL MOVIL -->
                 <div class="hamburguer"><i class='bx bx-menu'></i></div>
             </div>
@@ -90,7 +96,7 @@
                     </div>
                 </div>
                 <div class="confirm-pay">
-                    <a href="products.php" id="processpay">Proceder a pagar</a>
+                    <a href="mostrar_carrito.php" id="processpay">Proceder a pagar</a>
                 </div>
             </div>
         </div>
@@ -102,10 +108,10 @@
                 </div>
                 <div class="header-profile-user">
                     <div class="user-image">
-                        <img src="<?php echo resultadoDatosUsuario()[0]; ?>" alt="imagen usuario">
+                        <img src="<?php echo resultadoDatosUsuario()[1]; ?>" alt="imagen usuario">
                    </div> 
                     <div class="user-name">
-                        <h3><?php echo resultadoDatosUsuario()[1]; ?></h3>
+                        <h3><?php echo resultadoDatosUsuario()[2]; ?></h3>
                     </div>
                 </div>
                 <div class="content-profile-user">
