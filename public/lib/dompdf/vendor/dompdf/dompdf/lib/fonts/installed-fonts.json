@@ -1,0 +1,13 @@
+{
+    "source sans pro": {
+        "normal": "source_sans_pro_normal_cfe91c9ecf9b11c570756c61c2157ce6"
+    },
+    "poppins": {
+        "normal": "C:\\xampp\\htdocs\\tiendaMojarra\\public\\lib\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_normal_442dffd12abdf0df26c14405d3f49bfa",
+        "600": "C:\\xampp\\htdocs\\tiendaMojarra\\public\\lib\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_600_272b14b77a21dc5827f4570eff556c8f",
+        "bold": "poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
+    },
+    "boxicons": {
+        "normal": "boxicons_normal_29cb19fbfb90ef61e3b99f58d1084746"
+    }
+}

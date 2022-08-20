@@ -157,7 +157,7 @@
                         <div class="error error-text">El campo está vacío</div>
                     </div>
                     <div class="pass-link">
-                        <a href="#">Olvidaste tú contraseña?</a>
+                        <!-- <a href="#">Olvidaste tú contraseña?</a> -->
                     </div>
                     <input type="submit" value="Entrar" name="register" id="btn-login">
                 </form>

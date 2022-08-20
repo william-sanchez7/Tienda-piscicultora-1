@@ -1886,6 +1886,36 @@ main{
         width: 0;
     }
 }
+  
+  .invoice-list {
+    position: absolute;
+    top: 68px;
+    left: 5px;
+  }
+  .invoice-list .amount {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: right;
+  }
+  
+  .container {
+    max-width: 1200px;
+    min-width: 420px;
+  }
+  
+  .table tr th {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+  .table tr td {
+    font-size: 1.6rem;
+  }
+  
+ .formPayOrder input[type=submit]{
+    font-size: 2rem;
+ }
+
+
 /* details orders */
 .container-payindex{
     height: 58rem;

@@ -13,7 +13,6 @@
      $sentencia->bindParam(":TOTAL", $total);
      $sentencia->execute();
      $idVenta = $pdo->lastInsertId();
-     
    //Recorrer el metodo post, como los nombres de los inputs y asignar el valor 
     foreach ($_POST as $key => $value) {//name input.value
        //Selecciona todos los elementos qué contenga dataProduct
@@ -169,13 +168,21 @@
                                 </tr>
                             </tbody>
                         </table>
-
+                        
                     </div>
-
+                    <form action="factura.php" method="post" class="formPayOrder">
+                        <input type="number" value="<?php echo $idVenta; ?>" name="idVenta" hidden>
+                        <input type="submit" value="Finalizar compra" class="btn btn-success">
+                    </form>
                 </div>
 
             </div>
+            
         </div>
+       
     </div>
-</div> <br>
+            
+</div>
+      
+        <br>
 <?php require_once('includes/footer.php') ?>
