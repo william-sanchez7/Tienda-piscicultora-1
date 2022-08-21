@@ -11,13 +11,13 @@ $password = $_POST['password'];
     $idUser = $sessionUser['id_usuarios'];
 
 
-$foto = $_FILES['foto'];//Array qué contiene tres valores, trae el nombre y el tipo
+$foto = $_FILES['photo'];//Array qué contiene tres valores, trae el nombre y el tipo
 
 $tmp_name = $foto['tmp_name'];
 
 $img_file = $foto['name'];
 $img_type = $foto['type'];
-$foldImage = "img";
+$foldImage = "../public/img";
 $destino = $foldImage . '/' . $img_file;
 //Me valida si existe el formato de imagen
     if(((strpos($img_type, "gif") || strpos($img_type, "jpeg") || strpos($img_type, "jpg")) || strpos($img_type, "png"))){

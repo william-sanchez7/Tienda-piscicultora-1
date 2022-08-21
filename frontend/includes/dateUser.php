@@ -10,14 +10,15 @@ function obtenerDatosUsuario(){
        $imagenUsuario = $datosUsuario['imagen_usuario'];
        $nombreUsuario = $datosUsuario['nombre'];
        $correoUsuario = $datosUsuario['correo'];
+       $clave = $datosUsuario['contraseña'];
        $telefono = $datosUsuario['telefono'];
        $usuario = $datosUsuario['usuario'];
-       return array($idUsuario, $imagenUsuario, $nombreUsuario, $correoUsuario, $telefono, $usuario);
+       return array($idUsuario, $imagenUsuario, $nombreUsuario, $correoUsuario, $telefono, $usuario, $clave);
     } 
 }
 //Obtiene los datos de la función obtenerDatosUsuario
 function resultadoDatosUsuario(){
-    $resultadoDatosUsuario = list($idUsuario, $imagenUsuario, $nombreUsuario, $correoUsuario, $telefono, $usuario) = obtenerDatosUsuario();
+    $resultadoDatosUsuario = list($idUsuario, $imagenUsuario, $nombreUsuario, $correoUsuario, $telefono, $usuario, $clave) = obtenerDatosUsuario();
     return $resultadoDatosUsuario;
 }
 //Obtiene el ícono de login ó la imagen del usuario
