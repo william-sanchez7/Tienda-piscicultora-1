@@ -1,7 +1,54 @@
 <?php 
-    ob_start();
-    require_once('includes/conexion.php');
+    require_once("includes/conexion.php");
     require_once('includes/dateUser.php');
+    
+    $ID = $_POST['idventa'];
+    $FECHA = $_POST['fecha'];
+    $ID_USUARIO = $_POST['idUsuario'];
+    $TOTAL = $_POST['totalVenta'];
+    $DIRECCION = $_POST['direccionVenta'];
+    $CIUDAD = $_POST['ciudadVenta'];
+
+    if(isset($_POST['btn-cancel'])){
+        
+
+        $update=$pdo->prepare("UPDATE `ventas` SET 
+        `ID`=:ID,`FECHA`=:FECHA,`ID_USUARIO`=:ID_USUARIO,`TOTAL`=:TOTAL,`CIUDAD`=:CIUDAD,`DIRECCION`=:DIRECCION,`ESTADO`='cancelado' 
+        WHERE ID=:ID");
+
+        $update->bindParam(":ID", $ID);
+        $update->bindParam(":FECHA", $FECHA);
+        $update->bindParam(":ID_USUARIO", $ID_USUARIO);
+        $update->bindParam(":TOTAL", $TOTAL);
+        $update->bindParam(":CIUDAD", $CIUDAD);
+        $update->bindParam(":DIRECCION", $DIRECCION);
+        $update->execute();
+        header('location: pedidos.php');
+    }
+    if(isset($_POST['btn-eliminar'])){
+        $delete=$pdo->prepare("DELETE FROM `ventas` WHERE ID=:ID");
+        $delete->bindParam(":ID", $ID);
+        $delete->execute();
+        header('location: pedidos.php');
+    }
+    if(isset($_POST['btn-invoice'])){
+        $dataInvoice = $pdo->prepare("SELECT * FROM factura, detalle_ventas, ventas 
+        WHERE fk_venta = :ID AND ID_USUARIO=:ID_USUARIO;");
+        
+        $dataInvoice->bindParam(":ID", $ID);
+        $dataInvoice->bindParam(":ID_USUARIO", $ID_USUARIO);
+        $dataInvoice->execute();
+        $dataSelect = $dataInvoice->fetchAll(PDO::FETCH_ASSOC);
+    
+        foreach($dataSelect as $data){
+            $idVenta = $data['ID_VENTAS'];
+            $fechaVenta = $data['FECHA'];
+            $estadoVenta = $data['ESTADO'];
+            $totalVenta = $data['TOTAL'];
+        }
+    }
+    ob_start();
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,26 +83,6 @@
     <div class="container mt-3">
         <div class="card animate__animated animate__fadeIn">
             <div class="card-header">
-                <?php 
-                
-                $idUsuario = obtenerDatosUsuario()[0];
-                $idVenta = $_POST['idVenta'];
-
-
-                $consulta = $pdo->prepare("SELECT * FROM `ventas` WHERE ID = $idVenta"); 
-                $consulta->execute();
-                $ventas = $consulta->fetchAll(PDO::FETCH_ASSOC);
-                foreach($ventas as $ventasData){
-                     $idVenta = $ventasData['ID'];
-                     $fechaVenta = $ventasData['FECHA'];
-                     $estadoVenta = $ventasData['ESTADO'];
-                     $totalVenta = $ventasData['TOTAL'];
-                     $ciudadDetalleVenta = $ventasData['CIUDAD'];
-                     $direccionDetalle = $ventasData['DIRECCION'];
-                } 
-                
-                ?>
-
                 Fecha
                 <strong><?php echo $fechaVenta; ?></strong> <br>
                 <span class="float-right"> <strong>Estado:</strong> <?php echo $estadoVenta; ?> </span>
@@ -72,31 +99,14 @@
                         <div>Correo: tolifish@gmail.com</div>
                         <div>Telefono: +57 312 666 3333</div>
                     </div>
-                <?php 
-                $consultaDetallesVenta = $pdo->prepare("SELECT * FROM detalle_ventas, productos 
-                WHERE detalle_ventas.ID_PRODUCTO = productos.id_productos AND detalle_ventas.ID_VENTAS=$idVenta"); 
                 
-                $consultaDetallesVenta->execute();
-                $detalleVentas = $consultaDetallesVenta->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($detalleVentas as $item) {
-                    $idDetalleVenta = $item['ID'];
-                   
-                }
-
-                $insertarFactura = $pdo->prepare("INSERT INTO `factura` 
-                            (`id_factura`, `fecha_factura`, `fk_venta`, `DETALLE_VENTA`) 
-                            VALUES (NULL, now(), :IDVENTA, :DETALLEVENTA);");
-                $insertarFactura->bindParam(":IDVENTA", $idVenta);
-                $insertarFactura->bindParam(":DETALLEVENTA", $idDetalleVenta);            
-                $insertarFactura->execute();
-                ?>
                  <div class="col-6 col-md-6">
                         <h6 class="mb-2">Para:</h6>
                         <div>
                             <strong><?php echo resultadoDatosUsuario()[2]; ?></strong>
                         </div>
                         <div>Attn: <?php echo resultadoDatosUsuario()[2]; ?></div>
-                        <div><?php echo $direccionDetalle; echo " ",$ciudadDetalleVenta;?>, Colombia</div>
+                        <div><?php echo $DIRECCION; echo " ",$CIUDAD;?>, Colombia</div>
                         <div>Correo: <?php echo resultadoDatosUsuario()[3]; ?></div>
                         <div>Telefono: +57 <?php echo resultadoDatosUsuario()[4] ?></div>
                     </div>
@@ -117,8 +127,16 @@
                         </thead>
                         <tbody>
                             <!-- Traeme los productos que tengan el mismo id de la tabla detalle venta -->
-                            <tr>
                                 <?php 
+                                $consultaDetallesVenta = $pdo->prepare("SELECT * FROM detalle_ventas, productos 
+                                WHERE detalle_ventas.ID_PRODUCTO = productos.id_productos AND detalle_ventas.ID_VENTAS=$idVenta"); 
+                                
+                                $consultaDetallesVenta->execute();
+                                $detalleVentas = $consultaDetallesVenta->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($detalleVentas as $item) {
+                                    $idDetalleVenta = $item['ID'];
+                                   
+                                }
                                     foreach ($detalleVentas as $item) {
                                         $idVentas = $item['ID_VENTAS'];
                                         $precioVenta = $item['precio_producto'];
@@ -126,6 +144,7 @@
                                         $nombreProductoVenta= $item['nombre_producto'];
                                         $subtotalVenta = $cantidadVenta * $precioVenta;
                                  ?>
+                            <tr>
                                 <td class="text-left"><?php echo $idVentas; ?> </td>
                                 <td class="item_name"><?php echo $nombreProductoVenta  ?></td>
                                 <td class="item_desc d-none d-sm-table-cell"></td>
@@ -182,17 +201,19 @@
 </body>
 </html>
 <?php 
-$html = ob_get_clean();
-require_once('../public/lib/dompdf/autoload.inc.php');
-use Dompdf\Dompdf;
-$dompdf = new Dompdf();
 
-$options = $dompdf->getOptions();
-$options->set(array('isRemoteEnabled' => true));
-$dompdf->setOptions($options);
+    $html = ob_get_clean();
+    require_once('../public/lib/dompdf/autoload.inc.php');
+    use Dompdf\Dompdf;
+    $dompdf = new Dompdf();
 
-$dompdf->loadHtml($html);
-$dompdf->setPaper('letter');
-$dompdf->render();
-$dompdf->stream('factura_tolifish.pdf', array("Attachment" => false));
+    $options = $dompdf->getOptions();
+    $options->set(array('isRemoteEnabled' => true));
+    $dompdf->setOptions($options);
+
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('letter');
+    $dompdf->render();
+    $dompdf->stream('factura_tolifish.pdf', array("Attachment" => false));
+
 ?>

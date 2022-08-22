@@ -1,4 +1,6 @@
 <?php require_once('includes/header.php');
+
+   
 //Registrar los datos a la tabla ventas 
     $nombre = $_REQUEST['nameOrder'];
     $correo = $_REQUEST['correoOrder'];
@@ -6,11 +8,14 @@
     $direccion = $_REQUEST['address'];
     $numero = $_REQUEST['numberPhone'];
     $total = $_REQUEST['priceTotal'];
-     $sentencia = $pdo -> prepare(" INSERT INTO `ventas` 
-        (`ID`, `FECHA`, `CORREO`, `TOTAL`, `ESTADO`) 
-        VALUES (NULL, Now(), :CORREO, :TOTAL, 'pendiente');");
-     $sentencia->bindParam(":CORREO", $correo);
+    $idUser = resultadoDatosUsuario()[0];
+     $sentencia = $pdo->prepare("INSERT INTO `ventas`
+     (`ID`, `FECHA`, `ID_USUARIO`, `TOTAL`, `CIUDAD`, `DIRECCION`, `ESTADO`) 
+     VALUES (NULL, now(), :ID_USUARIO, :TOTAL, :CIUDAD, :DIRECCION,'pendiente')");
+     $sentencia->bindParam(":ID_USUARIO", $idUser);
      $sentencia->bindParam(":TOTAL", $total);
+     $sentencia->bindParam(":CIUDAD", $ciudad);
+     $sentencia->bindParam(":DIRECCION", $direccion);
      $sentencia->execute();
      $idVenta = $pdo->lastInsertId();
    //Recorrer el metodo post, como los nombres de los inputs y asignar el valor 
@@ -23,14 +28,12 @@
             $cantidadProducto = $temp->quantyOrder;
             
             $insertDetail = $pdo -> prepare("INSERT INTO `detalle_ventas` 
-            (`ID`, `ID_VENTAS`, `ID_PRODUCTO`, `PRECIO_UNITARIO`, `CANTIDAD`, `CIUDAD`, `DIRECCION`) 
-            VALUES (NULL, :ID_VENTA, :ID_PRODUCTO, :PRECIO_UNITARIO, :CANTIDAD, :CIUDAD, :DIRECCION);");
+            (`ID`, `ID_VENTAS`, `ID_PRODUCTO`, `PRECIO_UNITARIO`, `CANTIDAD`) 
+            VALUES (NULL, :ID_VENTA, :ID_PRODUCTO, :PRECIO_UNITARIO, :CANTIDAD);");
             $insertDetail->bindParam(":ID_VENTA", $idVenta);
             $insertDetail->bindParam(":ID_PRODUCTO",$idProducto);
             $insertDetail->bindParam(":PRECIO_UNITARIO",$precioProducto);
             $insertDetail->bindParam(":CANTIDAD", $cantidadProducto);
-            $insertDetail->bindParam(":CIUDAD", $ciudad);
-            $insertDetail->bindParam(":DIRECCION", $direccion);
             $insertDetail->execute();
         }
     }
@@ -78,11 +81,7 @@
                 $consultaDetallesVenta->execute();
                 $detalleVentas = $consultaDetallesVenta->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($detalleVentas as $item) {
-                    
-                    $direccionDetalle = $item['DIRECCION'];
-                    $ciudadDetalleVenta= $item['CIUDAD'];
-                   
-                   
+                
                 }
                 ?>
                  <div class="col-6 col-md-6">
@@ -91,7 +90,7 @@
                             <strong><?php echo resultadoDatosUsuario()[2]; ?></strong>
                         </div>
                         <div>Attn: <?php echo resultadoDatosUsuario()[2]; ?></div>
-                        <div><?php echo $direccionDetalle; echo " ",$ciudadDetalleVenta;?>, Colombia</div>
+                        <div><?php echo $direccion; echo " ",$ciudad;?>, Colombia</div>
                         <div>Correo: <?php echo resultadoDatosUsuario()[3]; ?></div>
                         <div>Telefono: +57 <?php echo resultadoDatosUsuario()[4] ?></div>
                     </div>
