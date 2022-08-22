@@ -122,7 +122,7 @@
                         <a href="pedidos.php"><i class='bx bx-history' ></i><h4> Historial</h4></a>
                     </div>
                     <div class="access-profile">
-                        <a href=""><i class='bx bxs-check-shield' ></i><h4> Politicas y privacidad</h4></a>
+                        <a href="#modalpolitica"><i class='bx bxs-check-shield' ></i><h4> Politicas y privacidad</h4></a> 
                     </div>
                     <div class="access-profile">
                         <a href="includes/signout.php"><i class='bx bx-exit' ></i><h4> Cerrar sesión</h4></a>
